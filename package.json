@@ -1,5 +1,5 @@
 { "name": "drawing-board"
-, "version": "0.0.0"
+, "version": "0.0.0-in-progress"
 , "description": "A navigatable SVG canvas. Made for web-based CAD apps."
 
 , "dependencies":
