@@ -1,6 +1,6 @@
-{ "name": "…"
+{ "name": "drawing-board"
 , "version": "0.0.0"
-, "description": "…"
+, "description": "A navigatable SVG canvas. Made for web-based CAD apps."
 
 , "dependencies":
   {}
@@ -11,14 +11,21 @@
   }
 
 , "devDependencies":
-  { "?": "Run `npm install browserify babelify tape-run node-tap` and save them here"
+  { "babelify": "5.0.4"
+  , "browserify": "9.0.3"
+  , "tap-spec": "2.2.2"
+  , "tape-run": "1.0.0"
 
-  , "?": "Run `npm install babel tape-catch` and save them here"
+  , "babel": "4.7.16"
+  , "tape": "3.5.0"
+  , "tape-catch": "1.0.4"
 
-  , "?": "Run `npm install gulp gulp-babel` and save them here"
+  , "del": "1.1.1"
+  , "gulp": "3.8.11"
+  , "gulp-babel": "4.0.0"
   }
 
-, "main": "/dist.es5/index.js"
+, "main": "/dist.es5/drawing-board.html"
 , "files":
   [ "/dist.es5/"
   , "/dist.es6/"
