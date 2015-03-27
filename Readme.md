@@ -8,7 +8,8 @@
 &lt;drawing-board&gt;
 =====================
 
-**A navigatable SVG canvas. Made for web-based CAD apps.**
+**A navigatable SVG canvas.**  
+**Made for web-based CAD apps.**
 
 
 
