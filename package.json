@@ -2,9 +2,6 @@
 , "version": "0.0.0-in-progress"
 , "description": "A navigatable SVG canvas. Made for web-based CAD apps."
 
-, "dependencies":
-  {}
-
 , "scripts":
   { "test": "browserify test.js --transform babelify | tape-run --browser=phantom | tap-spec"
   , "prepublish": "gulp build"
@@ -35,11 +32,19 @@
 
 , "license": "MIT"
 , "keywords":
-  [ "…"
+  [ "web-component"
+  , "2d"
+  , "canvas"
+  , "worksheet"
+  , "interactive"
+  , "zoom"
+  , "pan"
+  , "web component"
+  , "webcomponent"
   ]
 , "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com>"
 , "repository":
   { "type": "git"
-  , "url": "git@github.com:tomekwi/….git"
+  , "url": "git@github.com:tomekwi/drawing-board.html.git"
   }
 }
