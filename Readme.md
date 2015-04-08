@@ -9,7 +9,7 @@
 =====================
 
 **A navigatable SVG canvas.**  
-**Made for web-based CAD apps.**
+**The perfect hit for web-based design apps.**
 
 
 
@@ -35,7 +35,50 @@ $ bower install drawing-board
 Usage
 -----
 
-…
+1) Import the element – it’s just pure JavaScript:
+
+```html
+<script src="/path/to/drawing-board.min.js"></script>
+```
+
+2) Add a `<drawing-board>` to your document:
+
+```html
+<drawing-board
+  scale="0.75"
+  >
+</drawing-board>
+```
+
+3) Pack your `<svg>` elements inside:
+
+```html
+<drawing-board
+  scale="0.75"
+  >
+
+  <svg>
+    <defs><clipPath id="outer">
+      <circle r="200" />
+    </clipPath></defs>
+    <image
+      x="-200" y="-200"
+      width="400" height="400"
+      xlink:href="http://placeimg.com/400/400/any"
+      style="clip-path: url(#outer)"
+    />
+  </svg>
+
+  <svg x="-10">
+    <circle cx="10"
+      r="20"
+      fill="white"
+    />
+  </svg>
+  
+</drawing-board>
+```
+
 
 
 
