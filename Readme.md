@@ -1,6 +1,10 @@
-[![Build status](https://img.shields.io/travis/tomekwi/drawing-board.html/master.svg?style=flat-square)](https://travis-ci.org/tomekwi/drawing-board.html)
- [![Code climate](https://img.shields.io/codeclimate/github/tomekwi/drawing-board.html.svg?style=flat-square)](https://codeclimate.com/github/tomekwi/drawing-board.html)
- [![David DM](https://img.shields.io/david/tomekwi/drawing-board.html.svg?style=flat-square)](http://david-dm.org/tomekwi/drawing-board.html)
+[![Travis – build status](https://img.shields.io/travis/tomekwi/drawing-board.html/master.svg?style=flat-square)](https://travis-ci.org/tomekwi/drawing-board.html)
+ 
+[![Code climate](https://img.shields.io/codeclimate/github/tomekwi/drawing-board.html.svg?style=flat-square)](https://codeclimate.com/github/tomekwi/drawing-board.html)
+ 
+[![David – status of dependencies](https://img.shields.io/david/tomekwi/drawing-board.html.svg?style=flat-square)](https://david-dm.org/tomekwi/drawing-board.html)
+ 
+[![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
 
 
 
@@ -9,7 +13,7 @@
 =====================
 
 **A navigatable SVG canvas.**  
-**The perfect hit for web-based design apps.**
+**Perfect for web-based design apps.**
 
 
 
