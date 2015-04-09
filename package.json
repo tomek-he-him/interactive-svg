@@ -8,18 +8,17 @@
   }
 
 , "devDependencies":
-  { "babelify": "5.0.4"
-  , "browserify": "9.0.3"
-  , "tap-spec": "2.2.2"
+  { "babelify": "6.0.2"
+  , "browserify": "9.0.8"
+  , "tap-spec": "3.0.0"
   , "tape-run": "1.0.0"
 
-  , "babel": "4.7.16"
-  , "tape": "3.5.0"
+  , "babel": "5.0.12"
   , "tape-catch": "1.0.4"
 
   , "del": "1.1.1"
   , "gulp": "3.8.11"
-  , "gulp-babel": "4.0.0"
+  , "gulp-babel": "5.1.0"
   }
 
 , "main": "/dist.es5/drawing-board.html"
