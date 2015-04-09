@@ -41,6 +41,7 @@ Usage
 <script src="/path/to/drawing-board.min.js"></script>
 ```
 
+
 2) Add a `<drawing-board>` to your document:
 
 ```html
@@ -50,6 +51,11 @@ Usage
 </drawing-board>
 ```
 
+This will create a block element with a base coordinate system. Size it with CSS just like you’d size any other `<div>`.
+
+The coordinate system is nothing more than an anchor for SVG pixels. Set attributes on the `<drawing-board>` element to describe where and how you want your elements to be displayed.
+
+
 3) Pack your `<svg>` elements inside:
 
 ```html
@@ -57,6 +63,18 @@ Usage
   scale="0.75"
   >
 
+  <!--
+  An <svg> element you put here will have its (0, 0) point aligned with the
+  (0, 0) of the <drawing-board> – unless you set it otherwise. Read on.
+  -->
+  <svg>
+    <circle r="201" />
+  </svg>
+
+  <!--
+  You can stuff many small <svg> elements here – or keep everything in one fat
+  <svg>. It's up to you.
+  -->
   <svg>
     <defs><clipPath id="outer">
       <circle r="200" />
@@ -69,16 +87,32 @@ Usage
     />
   </svg>
 
+  <!--
+  Move individual <svg>s by specifying their `x` and `y` attributes. This one
+  will have its internal (0, 0) point at the <drawing-board>’s (-10, 0).
+  -->
   <svg x="-10">
-    <circle cx="10"
-      r="20"
+    <circle
+      cx="10"
+      r="25"
       fill="white"
+      stroke="black" stroke-width="1"
     />
   </svg>
   
 </drawing-board>
+
+<style> svg {overflow: visible} </style>
 ```
 
+The markup above will result in something similar to this:
+
+<p align="center">
+  <img
+    src="Readme/example.png"
+    width="302" height="302"
+  />
+</p>
 
 
 
