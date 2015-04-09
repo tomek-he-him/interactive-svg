@@ -1,7 +1,7 @@
 /*jshint esnext: false, globalstrict: true */
 "use strict";
 
-var gulp = require("gulp");
+var gulp = require("gulp-help")(require("gulp"));
 var babel = require("gulp-babel");
 var del = require("del");
 
@@ -11,7 +11,10 @@ var del = require("del");
 // `gulp build`
 // -------------------------------------------------------------------------------------------------
 
-gulp.task("build", ["clean", "scripts"]);
+gulp.task("build"
+  , "Compile everything."
+  , ["clean", "scripts"]
+  );
 
 
 
@@ -23,9 +26,12 @@ var scripts =
   { source: "source/**/*.js"
   };
 
-gulp.task("scripts", ["scripts:es6", "scripts:es5"]);
+gulp.task("scripts"
+  , "Compile ES6 and ES5 scripts."
+  , ["scripts:es6", "scripts:es5"]
+  );
 
-gulp.task("scripts:es6"
+gulp.task("scripts:es6", false
   , ["scripts:clean"]
   , function () {
     return gulp.src(scripts.source)
@@ -34,7 +40,7 @@ gulp.task("scripts:es6"
     }
   );
 
-gulp.task("scripts:es5"
+gulp.task("scripts:es5", false
   , ["scripts:clean"]
   , function () {
     return gulp.src(scripts.source)
@@ -44,7 +50,7 @@ gulp.task("scripts:es5"
     }
   );
 
-gulp.task("scripts:clean", function (done) {
+gulp.task("scripts:clean", false, function (done) {
   del(scripts.source, done);
   });
 
@@ -52,4 +58,7 @@ gulp.task("scripts:clean", function (done) {
 // `gulp clean`
 // -------------------------------------------------------------------------------------------------
 
-gulp.task("clean", ["scripts:clean"]);
+gulp.task("clean"
+  , "Remove all built files."
+  , ["scripts:clean"]
+  );
