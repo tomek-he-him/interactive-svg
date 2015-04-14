@@ -3,15 +3,12 @@
 , "description": "A navigatable SVG canvas. Made for web-based CAD apps."
 
 , "scripts":
-  { "test": "browserify test.js --transform babelify | tape-run --browser=phantom | tap-spec"
+  { "test": "babel-node test/*.js | tap-spec"
   , "prepublish": "gulp build"
   }
 
 , "devDependencies":
-  { "babelify": "6.0.2"
-  , "browserify": "9.0.8"
-  , "tap-spec": "3.0.0"
-  , "tape-run": "1.0.0"
+  { "tap-spec": "3.0.0"
 
   , "babel": "5.0.12"
   , "tape-catch": "1.0.4"
