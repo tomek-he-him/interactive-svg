@@ -1,6 +1,7 @@
 import { emitter } from 'contra';
 import vNodify from './tools/vNodify';
 import hashifyAttributes from './tools/hashifyAttributes';
+import { rendererPlugins } from './pluginRegistry';
 
 const _modelAttributeMessageProto = {
   oldValue: null,
@@ -17,13 +18,17 @@ function _modelAttributeMessage(domNode) {
 function createdCallback() {
 
   // Create an attribute channel.
-  this.attributeChannel = emitter();
+  let attributeChannel = this.attributeChannel = emitter();
+
+  this.renderers = rendererPlugins.map((plugin) => {
+    //TODO: Check if the plugin is a function.
+    return plugin({ attributeChannel }); });
 
   // Emit a message on the channel for every existing attribute.
   const attributeMessage = _modelAttributeMessage(this);
   const attributes = hashifyAttributes(this);
   Object.keys(attributes).forEach((attributeName) => {
-    this.attributeChannel.emit(attributeName,
+    attributeChannel.emit(attributeName,
       Object.assign(
         Object.create(attributeMessage),
         { newValue: attributes[attributeName] })); }); }
