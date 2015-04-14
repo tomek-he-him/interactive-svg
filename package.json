@@ -4,6 +4,7 @@
 
 , "dependencies":
   { "as": "0.4.1"
+  , "contra": "1.8.0"
   }
 
 , "scripts":
