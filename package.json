@@ -2,6 +2,10 @@
 , "version": "0.0.0-in-progress"
 , "description": "A navigatable SVG canvas. Made for web-based CAD apps."
 
+, "dependencies":
+  { "as": "0.4.1"
+  }
+
 , "scripts":
   { "test": "babel-node test/*.js | tap-spec"
   , "prepublish": "gulp build"
