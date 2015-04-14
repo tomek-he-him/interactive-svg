@@ -1,15 +1,47 @@
-import emitter from 'contra/emitter';
+import { emitter } from 'contra';
+import vNodify from './tools/vNodify';
+import hashifyAttributes from './tools/hashifyAttributes';
 
-const attributeStream = emitter();
+const _modelAttributeMessageProto = {
+  oldValue: null,
+  newValue: null,
+  _fromModel: true };
+function _modelAttributeMessage(domNode) {
+  return Object.assign(
+    Object.create(_modelAttributeMessageProto),
+    { vNode: vNodify(domNode) }); }
 
+ /**
+  * Initialize the element.
+  */
 function createdCallback() {
-  console.log('created!'); }
 
+  // Create an attribute channel.
+  this.attributeChannel = emitter();
+
+  // Emit a message on the channel for every existing attribute.
+  const attributeMessage = _modelAttributeMessage(this);
+  const attributes = hashifyAttributes(this);
+  Object.keys(attributes).forEach((attributeName) => {
+    this.attributeChannel.emit(attributeName,
+      Object.assign(
+        Object.create(attributeMessage),
+        { newValue: attributes[attributeName] })); }); }
+
+ /**
+  * Notify about a change in attributes.
+  */
 function attributeChangedCallback(name, oldValue, newValue) {
-  console.log(
-    `attribute ${name} changed from ${oldValue} to ${newValue}!`); }
+
+  // Emit a message on the attribute channel.
+  this.attributeChannel.emit(name,
+    Object.assign(
+      _modelAttributeMessage(this),
+      { oldValue, newValue })); }
 
 export default {
-  elementPrototype: Object.assign(
+  _elementProto: Object.assign(
     Object.create(HTMLElement.prototype),
-    { createdCallback, attributeChangedCallback }) };
+    { createdCallback, attributeChangedCallback }),
+  _modelAttributeMessageProto,
+  _modelAttributeMessage };
