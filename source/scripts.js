@@ -1,13 +1,13 @@
 import 'babel/polyfill';
 
-import model from 'scripts/model';
-import vNodify from 'tools/vNodify';
-import hashifyAttributes from 'tools/hashifyAttributes';
+import _model from './scripts/model';
+import vNodify from './scripts/tools/vNodify';
+import hashifyAttributes from './scripts/tools/hashifyAttributes';
 
-const tools = { vNodify, hashifyAttributes };
+const _tools = { vNodify, hashifyAttributes };
 
 const DrawingBoard =
   document.registerElement('drawing-board', {
-    prototype: model.prototype });
+    prototype: _model._elementProto });
 
-export default { DrawingBoard, model, tools };
+export default { DrawingBoard, _model, _tools };
