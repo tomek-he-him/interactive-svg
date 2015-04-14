@@ -9,7 +9,7 @@
 , "scripts":
   { "develop": "nodangel  --watch source  --watch test  --exec npm test"
   , "prepublish": "gulp build"
-  , "test": "babel-node test/*.js | tap-spec"
+  , "test": "babel-node test.js | tap-spec"
   }
 
 , "devDependencies":
