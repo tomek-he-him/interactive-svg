@@ -11,7 +11,7 @@
   { "develop": "nodangel  --watch source  --watch test  --exec npm test"
   , "prepublish": "gulp build"
   , "test": "babel-node test.js | tap-spec"
-  , "start": "echo 'Head over to http://localhost:9637/test/fixtures/basic.html and see miracles.\n' && livereloadx --static --port 9637 --exclude 'source/*'"
+  , "start": "echo 'Head over to http://localhost:9637/test/fixtures/basic.html and see miracles.\n' && livereloadx --static --port 9637 --exclude 'source/*' --exclude 'node_modules/*'"
   }
 
 , "devDependencies":
