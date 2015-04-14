@@ -3,9 +3,13 @@ module.exports = {
   entry: './source/scripts.js',
 
   output: {
-    path: './dist',
-    filename: 'scripts.js'
+    path: 'dist',
+    filename: 'drawing-board.js',
+    libraryTarget: 'umd',
+    library: 'DrawingBoard'
   },
+
+  devtool: 'source-map',
 
   module: { loaders: [
     {

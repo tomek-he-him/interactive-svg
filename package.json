@@ -24,10 +24,9 @@
 
 , "main": "/dist.es5/drawing-board.html"
 , "files":
-  [ "/dist.es5/"
-  , "/dist.es6/"
-  , "Readme.md"
-  , "License.md"
+  [ "/dist/"
+  , "/Readme.md"
+  , "/License.md"
   ]
 
 , "license": "MIT"
