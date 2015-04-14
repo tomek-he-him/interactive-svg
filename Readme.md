@@ -49,9 +49,7 @@ Usage
 2) Add a `<drawing-board>` to your document:
 
 ```html
-<drawing-board
-  scale="0.75"
-  >
+<drawing-board scale="0.75">
 </drawing-board>
 ```
 
@@ -63,26 +61,20 @@ The coordinate system is nothing more than an anchor for SVG pixels. Set attribu
 3) Pack your `<svg>` elements inside:
 
 ```html
-<drawing-board
-  scale="0.75"
-  >
+<drawing-board scale="0.75">
 
   <!--
   An <svg> element you put here will have its (0, 0) point aligned with the
   (0, 0) of the <drawing-board> – unless you set it otherwise. Read on.
   -->
-  <svg>
-    <circle r="201" />
-  </svg>
+  <svg><circle r="201" /></svg>
 
   <!--
   You can stuff many small <svg> elements here – or keep everything in one fat
   <svg>. It's up to you.
   -->
   <svg>
-    <defs><clipPath id="outer">
-      <circle r="200" />
-    </clipPath></defs>
+    <defs><clipPath id="outer"><circle r="200" /></clipPath></defs>
     <image
       x="-200" y="-200"
       width="400" height="400"
@@ -106,7 +98,7 @@ The coordinate system is nothing more than an anchor for SVG pixels. Set attribu
   
 </drawing-board>
 
-<style> svg {overflow: visible} </style>
+<style> svg { overflow: visible } </style>
 ```
 
 The markup above will result in something similar to this:
