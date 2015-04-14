@@ -26,6 +26,7 @@
   , "gulp-mustache": "1.0.2"
   , "gulp-rename": "1.2.2"
   , "jsdom": "3.1.2"
+  , "virtual-dom": "2.0.1"
   , "webpack": "1.8.2"
   }
 
