@@ -9,7 +9,7 @@ let vNodeProto = {
 
 export default function vNodify(element) {
   let vNode = Object.create(vNodeProto);
-  vNode.properties = hashifyAttributes(element);
+  vNode.properties = hashifyAttributes(element.attributes);
   if (element.tagName) vNode.tagName = element.tagName;
   return vNode;
 }
