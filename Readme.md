@@ -39,17 +39,18 @@ $ bower install drawing-board
 Usage
 -----
 
-1) Import the element – it’s just pure JavaScript:
+1) Import the element and desired plugins – it’s just pure JavaScript:
 
 ```html
 <script src="/path/to/drawing-board.min.js"></script>
+<script src="/path/to/drawing-board.scale.min.js"></script>
 ```
 
 
 2) Add a `<drawing-board>` to your document:
 
 ```html
-<drawing-board scale="0.75">
+<drawing-board scale=".75">
 </drawing-board>
 ```
 
@@ -61,7 +62,7 @@ The coordinate system is nothing more than an anchor for SVG pixels. Set attribu
 3) Pack your `<svg>` elements inside:
 
 ```html
-<drawing-board scale="0.75">
+<drawing-board scale=".75">
 
   <!--
   An <svg> element you put here will have its (0, 0) point aligned with the
@@ -109,6 +110,107 @@ The markup above will result in something similar to this:
     width="302" height="302"
   />
 </p>
+
+
+
+
+Features
+--------
+
+Every feature is available as a separate plugin. All of them are currently in development – ideas and criticism are very welcome.
+
+
+### `zoom`
+
+```html
+<drawing-board
+  zoom.speed="3"
+  >
+  <!-- ... -->
+</drawing-board>
+```
+
+- Enables zooming content in the viewport with the mouse wheel and the pinch-zoom event.
+
+
+### `pan`
+
+```html
+<drawing-board
+  pan.mouse-button="right"
+  >
+  <!-- ... -->
+</drawing-board>
+```
+
+- Enables panning content in the viewport with the mouse and the touch-drag event.
+
+
+### `scale`
+
+```html
+<drawing-board
+  scale="1.5"
+  >
+  <!-- ... -->
+</drawing-board>
+```
+
+- Requires the plugin `viewport`.
+
+- Supports relative units. `1.5` means *150%*.
+
+- `scale="1"` means “*1 SVG pixel* = *1 CSS pixel*.”
+
+
+### `target`
+
+```html
+<drawing-board
+  target.x="100"
+  target.y="-50"
+  >
+  <!-- ... -->
+</drawing-board>
+```
+
+- The above says “the point at *(100, -50) SVG pixels* is at the center of the `<drawing-board>`”
+
+- Supports all SVG units. Unitless means pixels, just like in SVG.
+
+
+### `viewport`
+
+```html
+<drawing-board
+  viewport.width="400px"
+  viewport.height="200px"
+  style="width: 400px; height: 200px"
+  >
+  <!-- ... -->
+</drawing-board>
+```
+
+- The above tells the `<drawing-board>` “your DOM element is 400 pixels wide”
+
+- Supports all CSS units.
+
+- I’m thinking of an opt-out, implicit `viewport="auto"` which would poll and update the element’s dimensions. Please let me know what you think in an issue.
+
+
+### `canvas`
+
+```html
+<drawing-board
+  canvas.width="10000"
+  canvas.height="6000"
+  >
+  <!-- ... -->
+</drawing-board>
+```
+
+- The above will limit panning and zooming to an area of *10000 × 6000 SVG pixels*
+
 
 
 
