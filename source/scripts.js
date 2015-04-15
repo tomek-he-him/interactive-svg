@@ -7,7 +7,9 @@ import { rendererPlugins, intentPlugins } from './scripts/pluginRegistry';
 
 const DrawingBoard =
   document.registerElement('drawing-board', {
-    prototype: _model._elementProto });
+    prototype: _model._elementProto
+  })
+;
 
 const _tools = { vNodify, hashifyAttributes };
 
@@ -16,4 +18,5 @@ export {
   intentPlugins,
   DrawingBoard,
   _model,
-  _tools };
+  _tools
+};

@@ -13,4 +13,5 @@ export default function element(htmlString) {
   while (lastNode = div.lastChild) div.removeChild(lastNode);
 
   // Return the first node.
-  return firstNode; }
+  return firstNode;
+}

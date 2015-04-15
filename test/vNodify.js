@@ -9,27 +9,42 @@ test('tools/vNodify:  ' +
     let node1 = vNodify({
       attributes: [
         { name: 'class', value: 'class one two three' },
-        { name: 'id', value: 'element-id' } ] });
+        { name: 'id', value: 'element-id' }
+      ]
+    });
+
     is.ok(isVNode(node1),
-      'a duck-typed element');
+      'a duck-typed element'
+    );
+
     is.deepEqual(node1.properties,
       {
         class: 'class one two three',
-        id: 'element-id' },
-      'getting `properties` right');
+        id: 'element-id'
+      },
+      'getting `properties` right'
+    );
 
     let node2 = vNodify(element(
-        '<div ' +
-          'class="anything" ' +
-          'align="left" ' +
-          '>' +
-        '</div>'));
+      '<div ' +
+        'class="anything" ' +
+        'align="left" ' +
+        '>' +
+      '</div>'
+    ));
+
     is.ok(isVNode(node2),
-      'a jsdom element');
+      'a jsdom element'
+    );
+
     is.deepEqual(node2.properties,
       {
         class: 'anything',
-        align: 'left' },
-      'getting `properties` right');
+        align: 'left'
+      },
+      'getting `properties` right'
+    );
 
-    is.end(); });
+    is.end();
+  }
+);

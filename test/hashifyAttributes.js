@@ -9,11 +9,15 @@ test('tools/hashifyAttributes:  ' +
       hashifyAttributes({
         attributes: [
           { name: 'class', value: 'class one two three' },
-          { name: 'id', value: 'element-id' } ] }),
+          { name: 'id', value: 'element-id' }
+        ]
+      }),
       {
         class: 'class one two three',
-        id: 'element-id' },
-      'on a duck-typed element');
+        id: 'element-id'
+      },
+      'on a duck-typed element'
+    );
 
     is.deepEqual(
       hashifyAttributes(element(
@@ -21,10 +25,15 @@ test('tools/hashifyAttributes:  ' +
           'class="anything" ' +
           'align="left" ' +
           '>' +
-        '</div>')),
+        '</div>'
+      )),
       {
         class: 'anything',
-        align: 'left' },
-      'on a jsdom element');
+        align: 'left'
+      },
+      'on a jsdom element'
+    );
 
-    is.end(); });
+    is.end();
+  }
+);
