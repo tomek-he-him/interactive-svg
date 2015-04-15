@@ -1,6 +1,6 @@
 import hashifyAttributes from './hashifyAttributes';
 
-let vNode = {
+let vNodeProto = {
   tagName: 'DIV',
   children: [],
   type: 'VirtualNode',
@@ -8,7 +8,8 @@ let vNode = {
 };
 
 export default function vNodify(element) {
-  return Object.assign(Object.create(vNode), {
-    properties: hashifyAttributes(element)
-  });
+  let vNode = Object.create(vNodeProto);
+  vNode.properties = hashifyAttributes(element);
+  if (element.tagName) vNode.tagName = element.tagName;
+  return vNode;
 }

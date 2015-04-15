@@ -22,19 +22,28 @@ test('tools/vNodify:  ' +
         class: 'class one two three',
         id: 'element-id'
       },
-      'getting `properties` right'
+      '— getting `properties` right'
+    );
+
+    is.equal(node1.tagName,
+      'DIV',
+      '— returning a <div> by default'
+    );
+
+    is.notOk(node1.hasOwnProperty('tagName'),
+      '— directly from the prototype'
     );
 
     let node2 = vNodify(element(
-      '<div ' +
+      '<custom-element ' +
         'class="anything" ' +
         'align="left" ' +
         '>' +
-      '</div>'
+      '</custom-element>'
     ));
 
     is.ok(isVNode(node2),
-      'a jsdom element'
+      'a jsdom custom element'
     );
 
     is.deepEqual(node2.properties,
@@ -42,7 +51,12 @@ test('tools/vNodify:  ' +
         class: 'anything',
         align: 'left'
       },
-      'getting `properties` right'
+      '— getting `properties` right'
+    );
+
+    is.equal(node2.tagName,
+      'CUSTOM-ELEMENT',
+      '— returning a <custom-element>'
     );
 
     is.end();
