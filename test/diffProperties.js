@@ -1,11 +1,11 @@
 import test from 'tape-catch';
 
-import diffAttributes from '../source/scripts/tools/diffAttributes';
+import diffProperties from '../source/scripts/tools/diffProperties';
 
-test('tools/diffAttributes:  ' +
+test('tools/diffProperties:  ' +
   'Diffs two attributes objects.', (is) => {
     is.deepEqual(
-      diffAttributes(
+      diffProperties(
         {  },
         {  }
       ),
@@ -14,7 +14,7 @@ test('tools/diffAttributes:  ' +
     );
 
     is.deepEqual(
-      diffAttributes(
+      diffProperties(
         {  a: 1     },
         {           }
       ),
@@ -23,7 +23,7 @@ test('tools/diffAttributes:  ' +
     );
 
     is.deepEqual(
-      diffAttributes(
+      diffProperties(
         {        },
         {  a: 1  }
       ),
@@ -32,7 +32,7 @@ test('tools/diffAttributes:  ' +
     );
 
     is.deepEqual(
-      diffAttributes(
+      diffProperties(
         {  a: 1  },
         {  a: 2  }
       ),
@@ -41,7 +41,7 @@ test('tools/diffAttributes:  ' +
     );
 
     is.deepEqual(
-      diffAttributes(
+      diffProperties(
         {  a: 1  },
         {  a: 1  }
       ),
@@ -50,7 +50,7 @@ test('tools/diffAttributes:  ' +
     );
 
     is.deepEqual(
-      diffAttributes(
+      diffProperties(
         {  a: 1   },
         {  a: ''  }
       ),
@@ -59,7 +59,7 @@ test('tools/diffAttributes:  ' +
     );
 
     is.deepEqual(
-      diffAttributes(
+      diffProperties(
         {  a: 1,   b: 2,     c: 3,  d: 4         },
         {  a: '',            c: 4,  d: 4,  e: 5  }
       ),

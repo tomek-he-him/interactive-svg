@@ -1,4 +1,4 @@
-export default function diffAttributes(a, b) {
+export default function diffProperties(a, b) {
   let result = {};
 
   let aProperties = [];

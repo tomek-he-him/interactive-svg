@@ -1,8 +1,8 @@
 import hashifyAttributes from './hashifyAttributes';
-import diffAttributes from './diffAttributes';
+import diffProperties from './diffProperties';
 
 export default function updateElement(element, vNode) {
-  let diff = diffAttributes(
+  let diff = diffProperties(
     hashifyAttributes(element.attributes),
     vNode.properties
   );
