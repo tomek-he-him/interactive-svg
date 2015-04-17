@@ -9,6 +9,6 @@ export default function updateElement(element, vNode) {
 
   for (let attribute in diff) if (diff.hasOwnProperty(attribute)) {
     if (diff[attribute] === null) element.removeAttribute(attribute);
-    else element.setAttribute(attribute, diff[attribute])
+    else element.setAttribute(attribute, diff[attribute]);
   }
 }

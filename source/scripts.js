@@ -1,22 +1,36 @@
 import 'babel/polyfill';
 
 import _model from './scripts/model';
-import vNodify from './scripts/tools/vNodify';
-import hashifyAttributes from './scripts/tools/hashifyAttributes';
-import { rendererPlugins, intentPlugins } from './scripts/pluginRegistry';
+import _view from './scripts/view';
+import defaultPlugins from './scripts/defaultPlugins';
 
-const DrawingBoard =
+const HTMLDrawingBoardElement =
   document.registerElement('drawing-board', {
-    prototype: _model._elementProto
+    prototype: Object.assign(
+      Object.create(HTMLElement),
+      {
+        createdCallback() {
+
+          // Initialize the model and view.
+          const model = _model(this);
+          const view = _view(this);
+
+          // Initialize default plugins.
+          defaultPlugins.forEach((plugin) => plugin(model, view));
+
+          // Export data.
+          Object.assign(this,
+            { model, view }
+          );
+        },
+
+        attributeChangedCallback: _model.attributeChangedCallback
+      }
+    )
   })
 ;
 
-const _tools = { vNodify, hashifyAttributes };
-
 export {
-  rendererPlugins,
-  intentPlugins,
-  DrawingBoard,
-  _model,
-  _tools
+  HTMLDrawingBoardElement,
+  defaultPlugins
 };
