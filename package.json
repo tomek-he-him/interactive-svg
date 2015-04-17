@@ -15,7 +15,7 @@
   }
 
 , "devDependencies":
-  { "tap-spec": "3.0.0"
+  { "tap-spec": "2.2.2"
   , "nodangel": "1.3.8"
   , "livereloadx": "0.3.7"
 
