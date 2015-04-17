@@ -9,8 +9,7 @@ export default function element(htmlString) {
 
   // Clear the div.
   let lastNode;
-  console.log(div);
-  while (lastNode = div.lastChild) div.removeChild(lastNode);
+  while ((lastNode = div.lastChild)) div.removeChild(lastNode);
 
   // Return the first node.
   return firstNode;
