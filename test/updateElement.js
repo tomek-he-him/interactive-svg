@@ -1,6 +1,7 @@
 import test from 'tape-catch';
 import element from './tools/element';
 import h from 'virtual-dom/h';
+import diff from 'virtual-dom/diff';
 import vNodify from '../source/scripts/tools/vNodify';
 
 import updateElement from '../source/scripts/tools/updateElement';
@@ -22,12 +23,16 @@ test('tools/updateElement:  ' +
     );
 
     updateElement(element1,
-      { properties: {
-        class: 'class one two three',
-        align: 'left',
-        'data-something': 'even better',
-        checked: ''
-      } }
+      { '0':
+        { type: 4,
+          patch: {
+            class: 'class one two three',
+            'data-something': 'even better',
+            checked: '',
+            id: undefined
+          }
+        }
+      }
     );
 
     is.equal(dewhitespace(element1.outerHTML),
@@ -40,7 +45,7 @@ test('tools/updateElement:  ' +
           '>' +
         '</div>'
       ),
-      'with duck-typed properties'
+      'with a lightweight duck-typed diff'
     );
 
     let element2 = element(
@@ -54,12 +59,20 @@ test('tools/updateElement:  ' +
     );
 
     updateElement(element2,
-      h('div', {
-        class: 'class one two three',
-        align: 'left',
-        'data-something': 'even better',
-        checked: ''
-      })
+      diff(
+        h('div', {
+          class: 'anything',
+          align: 'left',
+          id: 'element-id',
+          'data-something': 'good',
+        }),
+        h('div', {
+          class: 'class one two three',
+          align: 'left',
+          'data-something': 'even better',
+          checked: ''
+        })
+      )
     );
 
     is.equal(dewhitespace(element2.outerHTML),
@@ -86,15 +99,17 @@ test('tools/updateElement:  ' +
     );
 
     updateElement(element3,
-      vNodify(element(
-        '<div ' +
-          'class="class one two three" ' +
-          'align="left" ' +
-          'data-something="even better" ' +
-          'checked="" ' +
-          '>' +
-        '</div>'
-      ))
+      diff(vNodify(element3),
+        vNodify(element(
+          '<div ' +
+            'class="class one two three" ' +
+            'align="left" ' +
+            'data-something="even better" ' +
+            'checked="" ' +
+            '>' +
+          '</div>'
+        ))
+      )
     );
 
     is.equal(dewhitespace(element3.outerHTML),
@@ -107,7 +122,7 @@ test('tools/updateElement:  ' +
           '>' +
         '</div>'
       ),
-      'with a vNodified DOM element'
+      'with vNodified DOM elements'
     );
 
     is.end();

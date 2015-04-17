@@ -1,14 +1,9 @@
-import hashifyAttributes from './hashifyAttributes';
-import diffProperties from './diffProperties';
-
-export default function updateElement(element, vNode) {
-  let diff = diffProperties(
-    hashifyAttributes(element.attributes),
-    vNode.properties
-  );
-
-  for (let attribute in diff) if (diff.hasOwnProperty(attribute)) {
-    if (diff[attribute] === null) element.removeAttribute(attribute);
-    else element.setAttribute(attribute, diff[attribute]);
+export default function updateElement(element, diff) {
+  const { patch } = diff['0'];
+  for (let attribute in patch) if (patch.hasOwnProperty(attribute)) {
+    if (typeof patch[attribute] === 'undefined') {
+      element.removeAttribute(attribute);
+    }
+    else element.setAttribute(attribute, patch[attribute]);
   }
 }
