@@ -1,7 +1,7 @@
 import test from 'tape-catch';
 import element from './tools/element';
 
-import hashifyAttributes from '../source/scripts/tools/hashifyAttributes';
+import hashifyAttributes from '../source/drawingBoard/tools/hashifyAttributes';
 
 test('tools/hashifyAttributes:  ' +
   'Converts an element to a list of attributes.', (is) => {

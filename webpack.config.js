@@ -1,10 +1,10 @@
 module.exports = {
 
-  entry: './source/scripts.js',
+  entry: './source/drawingBoard.js',
 
   output: {
     path: 'dist',
-    filename: 'drawing-board.js',
+    filename: 'drawingBoard.js',
     libraryTarget: 'umd',
     library: 'DrawingBoard'
   },

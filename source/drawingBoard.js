@@ -1,8 +1,8 @@
 import 'babel/polyfill';
 
-import _model from './scripts/model';
-import _view from './scripts/view';
-import defaultPlugins from './scripts/defaultPlugins';
+import _model from './drawingBoard/model';
+import _view from './drawingBoard/view';
+import defaultPlugins from './drawingBoard/defaultPlugins';
 
 const HTMLDrawingBoardElement =
   document.registerElement('drawing-board', {
