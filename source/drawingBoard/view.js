@@ -9,16 +9,19 @@ export default function view (viewportElement) {
 
   // Initialize the channel `viewBoxTransformations`.
   const viewBoxTransformations = stereo();
-  const transformationsChain = [];
+  const transformations = [];
   viewBoxTransformations.on('update',
-    updateTransformation(transformationsChain)
+    updateTransformation(transformations)
   );
   viewBoxTransformations.on(['update', 'touch'], () => {
-    const { error, viewBoxUpdate } = applyTransformations(transformationsChain);
-    if (error) console.warn(error);
+    const { error, viewBoxUpdate } = applyTransformations(transformations);
+    if (error) console.warn(error.message);
     if (viewBoxUpdate) updateElement(
       viewportElement,
       vPatchify({ viewBox: viewBoxUpdate })
     );
   });
+
+  // Export data.
+  return { viewBoxTransformations };
 }
