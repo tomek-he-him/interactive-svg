@@ -7,7 +7,9 @@ function model () {
 }
 
 model.attributeChangedCallback = function attributeChangedCallback(attribute) {
-  this.model.updates.emit(attribute, {vNode: vNodify(this)});
+  this.model.updates.emit(attribute, {
+    vNode: vNodify(this)
+  });
 };
 
 export default model;

@@ -23,8 +23,8 @@ const HTMLDrawingBoardElement =
           const elements = { root, shadowRoot, viewport };
 
           // Initialize the model and view.
-          const model = _model(this, elements);
-          const view = _view(this, elements);
+          const model = _model();
+          const view = _view(viewport);
 
           // Initialize default plugins.
           defaultPlugins.forEach((plugin) => plugin(model, view));
