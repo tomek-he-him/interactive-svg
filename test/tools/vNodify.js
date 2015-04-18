@@ -1,8 +1,8 @@
 import test from 'tape-catch';
 import isVNode from 'virtual-dom/vnode/is-vnode';
-import element from './tools/element';
+import element from '../test-tools/element';
 
-import vNodify from '../source/drawingBoard/tools/vNodify';
+import vNodify from '../../source/drawingBoard/tools/vNodify';
 
 test('tools/vNodify:  ' +
   'Converts an element to a VirtualNode.', (is) => {

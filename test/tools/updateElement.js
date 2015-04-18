@@ -1,10 +1,10 @@
 import test from 'tape-catch';
-import element from './tools/element';
+import element from '../test-tools/element';
 import h from 'virtual-dom/h';
 import diff from 'virtual-dom/diff';
-import vNodify from '../source/drawingBoard/tools/vNodify';
+import vNodify from '../../source/drawingBoard/tools/vNodify';
 
-import updateElement from '../source/drawingBoard/tools/updateElement';
+import updateElement from '../../source/drawingBoard/tools/updateElement';
 
 function dewhitespace(string) {
   return string.replace(/\s/g, '');
