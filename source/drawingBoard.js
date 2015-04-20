@@ -14,7 +14,14 @@ const HTMLDrawingBoardElement =
           // Create internal shadow DOM.
           const root = this;
           const shadowRoot = root.createShadowRoot();
-          const viewport = document.createElement('svg');
+          const viewport = document.createElementNS(
+            'http://www.w3.org/2000/svg',
+            'svg'
+          );
+          viewport.setAttributeNS(
+            'http://www.w3.org/2000/xmlns/',
+            'xmlns:xlink', 'http://www.w3.org/1999/xlink'
+          );
           const content = document.createElement('content');
           viewport.appendChild(content);
           shadowRoot.appendChild(viewport);
