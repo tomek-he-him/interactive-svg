@@ -15,6 +15,8 @@
 **A navigatable SVG canvas.**  
 **Perfect for web-based design apps.**
 
+*Heads up! This is totally a work in progress. Ideas are very welcome :)*
+
 
 
 
