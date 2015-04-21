@@ -1,6 +1,6 @@
 const defaultPlugins = new Set([
   function scale(model) {
-    model.updates.on('scale', (...args) => {
+    model.updates.when('scale', (...args) => {
       console.log('Scale plugin gets:', ...args);
     });
   }
