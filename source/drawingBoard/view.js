@@ -22,6 +22,12 @@ export default function view (viewportElement) {
     );
   });
 
+  // Initialize the channel `attributeUpdates`.
+  const attributeUpdates = stereo();
+  attributeUpdates.on(['update', 'touch'], (patch) => {
+    updateElement(viewportElement, patch);
+  });
+
   // Export data.
-  return { viewBoxTransformations };
+  return { viewBoxTransformations, attributeUpdates };
 }

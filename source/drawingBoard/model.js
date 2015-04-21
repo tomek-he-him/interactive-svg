@@ -2,22 +2,18 @@ import stereo from 'stereo';
 import vNodify from './tools/vNodify';
 
 function model (root) {
-  const updates = stereo();
+  const attributeChanges = stereo();
 
-  const eventData = {
-    vNode: vNodify(root)
-  };
+  const vNode = vNodify(root);
   Array.from(root.attributes).forEach((attribute) => {
-    updates.emit(attribute.name, eventData);
+    attributeChanges.emit(attribute.name, vNode);
   });
 
-  return { updates };
+  return { attributeChanges };
 }
 
 model.attributeChangedCallback = function attributeChangedCallback(attribute) {
-  this.model.updates.emit(attribute, {
-    vNode: vNodify(this)
-  });
+  this.model.attributeChanges.emit(attribute, vNodify(this));
 };
 
 export default model;
