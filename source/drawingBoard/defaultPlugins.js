@@ -25,8 +25,8 @@ const defaultPlugins = new Set([
         transformFunction: () => [
           -(width / 2),
           -(height / 2),
-          width / 2,
-          height / 2
+          width,
+          height
         ]
       });
     });
