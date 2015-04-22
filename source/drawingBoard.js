@@ -15,23 +15,22 @@ const HTMLDrawingBoardElement =
       {
         createdCallback() {
 
-          // Create internal shadow DOM.
+          // Create internal DOM.
+          //
+          // We’d love to use shadow DOM here. But alas SVG support in shadow
+          // DOM is flaky. So unfortunately we need to expose the guts.
           const root = this;
-          const shadowRoot = root.createShadowRoot();
-
-          const style = document.createElement('style');
-          style.textContent = '#v{overflow:hidden}';
-          shadowRoot.appendChild(style);
-
           const viewport = document.createElementNS(SVG_NS, 'svg');
-          const content = document.createElement('content');
           viewport.setAttributeNS(XMLNS_NS, 'xmlns:xlink', XLINK_NS);
-          viewport.setAttribute('id', 'v');
-          viewport.appendChild(content);
-          shadowRoot.appendChild(viewport);
+
+          let firstChild;
+          while ((firstChild = root.firstChild)) {
+            viewport.appendChild(firstChild);
+          }
+          root.appendChild(viewport);
 
           // Save references to the DOM.
-          const elements = { root, shadowRoot, viewport };
+          const elements = { root, viewport };
 
           // Initialize the model and view.
           const model = _model(root);
