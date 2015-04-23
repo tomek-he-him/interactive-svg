@@ -2,11 +2,12 @@ import 'babel/polyfill';
 
 import _model from './core/model';
 import _view from './core/view';
-import defaultPlugins from './core/defaultPlugins';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 const XMLNS_NS = 'http://www.w3.org/2000/xmlns/';
 const XLINK_NS = 'http://www.w3.org/1999/xlink';
+
+const defaultPlugins = new Set();
 
 const HTMLDrawingBoardElement =
   document.registerElement('drawing-board', {

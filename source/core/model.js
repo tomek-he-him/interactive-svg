@@ -1,5 +1,5 @@
 import stereo from 'stereo';
-import vNodify from './tools/vNodify';
+import vNodify from '../tools/vNodify';
 
 function model (root) {
   const attributeChanges = stereo();

@@ -1,20 +1,24 @@
 var asObject = require('as/object');
+var assign = require('101/assign');
 
 module.exports = {
 
-  entry: asObject([
-    'core',
-  ].map(function(name) { return {
-    key: name,
-    value: ('./source/' +
-      (name === 'core' ? '' : 'plugins/') +
-      name + '.js'
-    )
-  }; })),
+  entry: assign(
+    {
+      drawingBoard: './source/core.js'
+    },
+    asObject([
+      'scale',
+      'viewport'
+    ].map(function(name) { return {
+      key: 'drawingBoard.' + name,
+      value: './source/plugins/' + name + '.js'
+    }; }))
+  ),
 
   output: {
     path: 'dist',
-    filename: 'drawingBoard.[name].js',
+    filename: '[name].js',
     libraryTarget: 'umd',
     library: ['drawingBoard', '[name]']
   },
