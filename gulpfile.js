@@ -10,21 +10,26 @@ var webpackConfig = require('./webpack.config.js');
 // -------------------------------------------------------------------------------------------------
 gulp.task('build',
   'Compile everything.',
-  [ 'clean', 'scripts' ]);
+  ['clean', 'scripts']
+);
 
 // `gulp scripts`
 // -------------------------------------------------------------------------------------------------
 gulp.task('scripts',
   'Compile scripts with webpack.',
-  [ 'scripts:clean' ],
+  ['scripts:clean'],
   function(done) {
-    webpack(webpackConfig, done); });
+    webpack(webpackConfig, done);
+  }
+);
 
 gulp.task('scripts:clean', false, function(done) {
-  del(webpackConfig.output.path + '/**/*.{js,js.map}', done); });
+  del(webpackConfig.output.path + '/**/*.{js,js.map}', done);
+});
 
 // `gulp clean`
 // -------------------------------------------------------------------------------------------------
 gulp.task('clean',
   'Remove all built files.',
-  [ 'scripts:clean' ]);
+  ['scripts:clean']
+);
