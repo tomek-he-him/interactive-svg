@@ -1,12 +1,22 @@
+var asObject = require('as/object');
+
 module.exports = {
 
-  entry: './source/drawingBoard.js',
+  entry: asObject([
+    'core',
+  ].map(function(name) { return {
+    key: name,
+    value: ('./source/' +
+      (name === 'core' ? '' : 'plugins/') +
+      name + '.js'
+    )
+  }; })),
 
   output: {
     path: 'dist',
-    filename: 'drawingBoard.js',
+    filename: 'drawingBoard.[name].js',
     libraryTarget: 'umd',
-    library: 'DrawingBoard'
+    library: ['drawingBoard', '[name]']
   },
 
   devtool: 'source-map',
@@ -15,7 +25,7 @@ module.exports = {
     {
       loader: 'babel-loader',
       test: /\.js$/,
-      exclude: /node_modules/
+      include: __dirname + '/source/'
     }
   ] }
 

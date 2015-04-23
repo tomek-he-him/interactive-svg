@@ -1,8 +1,8 @@
 import 'babel/polyfill';
 
-import _model from './drawingBoard/model';
-import _view from './drawingBoard/view';
-import defaultPlugins from './drawingBoard/defaultPlugins';
+import _model from './core/model';
+import _view from './core/view';
+import defaultPlugins from './core/defaultPlugins';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 const XMLNS_NS = 'http://www.w3.org/2000/xmlns/';
