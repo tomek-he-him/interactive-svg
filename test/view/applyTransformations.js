@@ -2,7 +2,7 @@
 import test from 'tape-catch';
 
 import applyTransformations from
-  '../../source/drawingBoard/view/applyTransformations'
+  '../../source/core/view/applyTransformations'
 ;
 
 
