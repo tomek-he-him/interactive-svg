@@ -15,10 +15,9 @@ const HTMLDrawingBoardElement =
       {
         createdCallback() {
 
-          // Create internal DOM.
-          //
-          // We’d love to use shadow DOM here. But alas SVG support in shadow
-          // DOM is flaky. So unfortunately we need to expose the guts.
+          // Create internal DOM. We’d love to use shadow DOM here. But alas SVG
+          // support in shadow DOM is flaky. So unfortunately we need to expose
+          // the guts.
           const root = this;
           const viewport = document.createElementNS(SVG_NS, 'svg');
           viewport.setAttributeNS(XMLNS_NS, 'xmlns:xlink', XLINK_NS);
