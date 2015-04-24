@@ -27,7 +27,17 @@ export default function scale(model, view) {
 
     // Inject the viewBox transformation.
     else emit('add', Object.assign(emptyUpdate, {
-      transformFunction: (coords) => coords.map((coord) => coord / cleanScale)
+      transformFunction: (coords) => {
+        const [x, y, width, height] = coords;
+        const targetX = x + width / 2;
+        const targetY = y + height / 2;
+        return [
+          targetX - width / 2 / cleanScale,
+          targetY - height / 2 / cleanScale,
+          width / cleanScale,
+          height / cleanScale
+        ];
+      }
     }));
   });
 }
