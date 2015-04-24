@@ -7,6 +7,7 @@ module.exports = {
     { core: './source/core.js' },
     asObject([
       'scale',
+      'target',
       'viewport',
       'autoregister'
     ].map(function(name) { return {
