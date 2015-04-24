@@ -4,13 +4,29 @@ var del = require('del');
 var webpack = require('webpack');
 
 var gulp = require('gulp-help')(require('gulp'));
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 var webpackConfig = require('./webpack.config.js');
 
 // `gulp build`
 // -------------------------------------------------------------------------------------------------
 gulp.task('build',
   'Compile everything.',
-  ['clean', 'scripts']
+  ['clean', 'scripts', 'minify']
+);
+
+// `gulp minify`
+// -------------------------------------------------------------------------------------------------
+gulp.task('minify',
+  'Minify compiled scripts.',
+  ['scripts:clean', 'scripts'],
+  function() {
+    return gulp.src(webpackConfig.output.path + '/*.js')
+      .pipe(uglify())
+      .pipe(rename({suffix: '.min'}))
+      .pipe(gulp.dest(webpackConfig.output.path))
+    ;
+  }
 );
 
 // `gulp scripts`
