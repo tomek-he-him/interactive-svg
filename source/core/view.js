@@ -15,7 +15,7 @@ export default function view (viewportElement) {
   );
   viewBoxTransformations.on(['update', 'touch'], () => {
     const { error, viewBoxUpdate } = applyTransformations(transformations);
-    if (error) console.warn(error.message);
+    if (error) console.warn(error);
     if (viewBoxUpdate) updateElement(
       viewportElement,
       vPatchify({ viewBox: viewBoxUpdate })

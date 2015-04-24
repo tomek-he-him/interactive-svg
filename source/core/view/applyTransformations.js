@@ -5,11 +5,13 @@ function applyTransformation(previous, current) {
 export default function applyTransformations(transformations) {
   // Apply transformations and validate the result.
   const viewBoxCoordinates = transformations.reduce(applyTransformation, []);
-  if (!Array.isArray(viewBoxCoordinates) ||
-    viewBoxCoordinates.length !== 4
-    ) return {
+  if (
+    !Array.isArray(viewBoxCoordinates) ||
+    viewBoxCoordinates.length !== 4 ||
+    !viewBoxCoordinates.every(Number.isFinite)
+  ) return {
     error: new TypeError(
-      '<drawing-board> view: Every transformation functions should return a ' +
+      '<drawing-board> view: Every transformation function should return a ' +
       '`{Number[4]} viewBoxCoordinates`.'
     )
   };
