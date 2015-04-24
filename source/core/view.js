@@ -14,8 +14,14 @@ export default function view (viewportElement) {
     updateTransformation(transformations)
   );
   viewBoxTransformations.on(['update', 'touch'], () => {
-    const { error, viewBoxUpdate } = applyTransformations(transformations);
-    if (error) console.warn(error);
+    let viewBox = viewportElement.getAttribute('viewBox');
+    if (!viewBox) return;
+
+    const { error, viewBoxUpdate } = applyTransformations(
+      transformations,
+      viewBox.split(' ').map(Number)
+    );
+    if (error) console.error(error);
     if (viewBoxUpdate) updateElement(
       viewportElement,
       vPatchify({ viewBox: viewBoxUpdate })

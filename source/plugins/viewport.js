@@ -23,18 +23,10 @@ export default function viewport(model, view, elements) {
         'height:' + height + 'px'
       ]).join(';'),
       width,
-      height
+      height,
+      viewBox: `${-(width / 2)} ${-(height / 2)} ${width} ${height}`
     }));
 
-    // Update the viewport’s viewBox.
-    view.viewBoxTransformations.emit('update', {
-      priority: 0,
-      transformFunction: () => [
-        -(width / 2),
-        -(height / 2),
-        width,
-        height
-      ]
-    });
+    view.viewBoxTransformations.emit('touch');
   });
 }
