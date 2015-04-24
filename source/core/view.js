@@ -7,6 +7,13 @@ import updateElement from '../tools/updateElement';
 
 export default function view (viewportElement) {
 
+  // Initialize the channel `initialViewBoxCoords`.
+  let viewBoxCoords = null;
+  const initialViewBoxCoords = stereo();
+  initialViewBoxCoords.on('update', (coords) => {
+    viewBoxCoords = coords;
+  });
+
   // Initialize the channel `viewBoxTransformations`.
   const viewBoxTransformations = stereo();
   const transformations = [];
@@ -14,12 +21,11 @@ export default function view (viewportElement) {
     updateTransformation(transformations)
   );
   viewBoxTransformations.on(['update', 'touch'], () => {
-    let viewBox = viewportElement.getAttribute('viewBox');
-    if (!viewBox) return;
+    if (!viewBoxCoords) return;
 
     const { error, viewBoxUpdate } = applyTransformations(
       transformations,
-      viewBox.split(' ').map(Number)
+      viewBoxCoords
     );
     if (error) console.error(error);
     if (viewBoxUpdate) updateElement(
@@ -35,5 +41,5 @@ export default function view (viewportElement) {
   });
 
   // Export data.
-  return { viewBoxTransformations, attributeUpdates };
+  return { viewBoxTransformations, attributeUpdates, initialViewBoxCoords };
 }
