@@ -11,7 +11,7 @@ export default function scale(model, view) {
 
     // Clean up if the attribute has been removed.
     if (scale == null) {
-      emit('update', emptyUpdate);
+      emit('add', emptyUpdate);
       return;
     }
 
@@ -22,11 +22,11 @@ export default function scale(model, view) {
         'drawingBoard.scale: The <drawing-board> attribute `scale` should ' +
         'be a `{Number}`.'
       ));
-      emit('update', emptyUpdate);
+      emit('add', emptyUpdate);
     }
 
     // Inject the viewBox transformation.
-    else emit('update', Object.assign(emptyUpdate, {
+    else emit('add', Object.assign(emptyUpdate, {
       transformFunction: (coords) => coords.map((coord) => coord / cleanScale)
     }));
   });

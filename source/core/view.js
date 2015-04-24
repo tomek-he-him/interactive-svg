@@ -18,10 +18,10 @@ export default function view (viewportElement) {
   // Initialize the channel `viewBoxTransformations`.
   const viewBoxTransformations = stereo();
   const transformations = [];
-  viewBoxTransformations.on('update',
+  viewBoxTransformations.on('add',
     updateTransformation(transformations)
   );
-  viewBoxTransformations.on(['update', 'touch'], () => {
+  viewBoxTransformations.on(['add', 'touch'], () => {
     if (!viewBoxCoords) {
       updateElement(viewportElement, vPatchify({viewBox: null}));
       return;
@@ -40,7 +40,7 @@ export default function view (viewportElement) {
 
   // Initialize the channel `attributeUpdates`.
   const attributeUpdates = stereo();
-  attributeUpdates.on(['update', 'touch'], (patch) => {
+  attributeUpdates.on('update', (patch) => {
     updateElement(viewportElement, patch);
   });
 

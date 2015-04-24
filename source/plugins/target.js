@@ -11,7 +11,7 @@ export default function target(model, view) {
 
     // Clean up if the attribute has been removed.
     if (target == null) {
-      emit('update', emptyUpdate);
+      emit('add', emptyUpdate);
       return;
     }
 
@@ -22,11 +22,11 @@ export default function target(model, view) {
         'drawingBoard.target: The <drawing-board> attribute `target` should ' +
         'match the form "`{Number} x`, `{Number} y`".'
       ));
-      emit('update', Object.assign(emptyUpdate));
+      emit('add', Object.assign(emptyUpdate));
     }
 
     // Update viewBox transformations.
-    else emit('update', Object.assign(emptyUpdate, {
+    else emit('add', Object.assign(emptyUpdate, {
       transformFunction: (coords) => [
         coords[0] + x,
         coords[1] + y,
