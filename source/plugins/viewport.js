@@ -17,6 +17,7 @@ export default function viewport(model, view, elements) {
         'drawingBoard.viewport: The <drawing-board> attribute `viewport` ' +
         'should match the form "`{Number} width` × `{Number} height`".'
       ));
+      view.initialViewBoxCoords.emit('update', null);
     }
 
     // Update the viewport’s style and dimensions.
@@ -43,7 +44,6 @@ export default function viewport(model, view, elements) {
         width,
         height
       ]);
-      view.viewBoxTransformations.emit('touch');
     }
   });
 }

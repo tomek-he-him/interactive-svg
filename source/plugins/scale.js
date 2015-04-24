@@ -19,7 +19,7 @@ export default function scale(model, view) {
     }
 
     // Inject the viewBox transformation.
-    else emit ('update', Object.assign(emptyUpdate, {
+    else emit('update', Object.assign(emptyUpdate, {
       transformFunction: (coords) => coords.map((coord) => coord / scale)
     }));
   });

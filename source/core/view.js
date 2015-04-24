@@ -12,6 +12,7 @@ export default function view (viewportElement) {
   const initialViewBoxCoords = stereo();
   initialViewBoxCoords.on('update', (coords) => {
     viewBoxCoords = coords;
+    viewBoxTransformations.emit('touch');
   });
 
   // Initialize the channel `viewBoxTransformations`.
@@ -21,7 +22,10 @@ export default function view (viewportElement) {
     updateTransformation(transformations)
   );
   viewBoxTransformations.on(['update', 'touch'], () => {
-    if (!viewBoxCoords) return;
+    if (!viewBoxCoords) {
+      updateElement(viewportElement, vPatchify({viewBox: null}));
+      return;
+    }
 
     const { error, viewBoxUpdate } = applyTransformations(
       transformations,
@@ -39,6 +43,11 @@ export default function view (viewportElement) {
   attributeUpdates.on(['update', 'touch'], (patch) => {
     updateElement(viewportElement, patch);
   });
+
+  // Catch and display errors.
+  [
+    initialViewBoxCoords, viewBoxTransformations, attributeUpdates
+  ].forEach((channel) => channel.catch(console.error.bind(console)));
 
   // Export data.
   return { viewBoxTransformations, attributeUpdates, initialViewBoxCoords };
