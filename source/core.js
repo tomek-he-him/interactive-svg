@@ -22,6 +22,7 @@ const HTMLDrawingBoardElement =
           const root = this;
           const viewport = document.createElementNS(SVG_NS, 'svg');
           viewport.setAttributeNS(XMLNS_NS, 'xmlns:xlink', XLINK_NS);
+          viewport.setAttribute('style', 'display:block');
 
           let firstChild;
           while ((firstChild = root.firstChild)) {
