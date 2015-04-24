@@ -1,0 +1,49 @@
+<!doctype html>
+
+<script src="../../dist/drawingBoard.core.js"></script>
+<script src="../../dist/drawingBoard.scale.js"></script>
+<script src="../../dist/drawingBoard.target.js"></script>
+<script src="../../dist/drawingBoard.viewport.js"></script>
+<script src="../../dist/drawingBoard.autoregister.js"></script>
+
+<drawing-board
+  scale="0.75"
+  viewport="300 × 300"
+  >
+
+  <!--
+  An <svg> element you put here will have its (0, 0) point aligned with the
+  (0, 0) of the <drawing-board> – unless you set it otherwise. Read on.
+  -->
+  <svg><circle r="201" /></svg>
+
+  <!--
+  You can stuff many small <svg> elements here – or keep everything in one fat
+  <svg>. It's up to you.
+  -->
+  <svg>
+    <defs><clipPath id="outer"><circle r="200" /></clipPath></defs>
+    <image
+      x="-200" y="-200"
+      width="400" height="400"
+      xlink:href="http://placeimg.com/400/400/any/sepia"
+      style="clip-path: url(#outer)"
+    />
+  </svg>
+
+  <!--
+  Move individual <svg>s by specifying their `x` and `y` attributes. This one
+  will have its internal (0, 0) point at the <drawing-board>’s (-10, 0).
+  -->
+  <svg x="-10">
+    <circle
+      cx="10"
+      r="25"
+      fill="white"
+      stroke="black" stroke-width="1"
+    />
+  </svg>
+
+</drawing-board>
+
+<style> svg { overflow: visible } </style>
