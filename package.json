@@ -4,7 +4,7 @@
 
 , "dependencies":
   { "as": "0.4.1"
-  , "stereo": "0.2.0"
+  , "stereo": "0.3.0"
   }
 
 , "scripts":
