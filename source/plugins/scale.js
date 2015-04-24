@@ -7,10 +7,17 @@ export default function scale(model, view) {
   model.attributeChanges.when('scale', (vNode) => {
     const emptyUpdate = Object.create(proto);
     const {emit} = view.viewBoxTransformations;
+    const {scale} = vNode.properties;
+
+    // Clean up if the attribute has been removed.
+    if (scale == null) {
+      emit('update', emptyUpdate);
+      return;
+    }
 
     // Validate the attribute.
-    const scale = Number(vNode.properties.scale);
-    if (!Number.isFinite(scale)) {
+    const cleanScale = Number(scale);
+    if (!Number.isFinite(cleanScale)) {
       emit('error', new Error(
         'drawingBoard.scale: The <drawing-board> attribute `scale` should ' +
         'be a `{Number}`.'
@@ -20,7 +27,7 @@ export default function scale(model, view) {
 
     // Inject the viewBox transformation.
     else emit('update', Object.assign(emptyUpdate, {
-      transformFunction: (coords) => coords.map((coord) => coord / scale)
+      transformFunction: (coords) => coords.map((coord) => coord / cleanScale)
     }));
   });
 }

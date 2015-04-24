@@ -1,25 +1,32 @@
 const proto = {
-  priority: 10
+  priority: 10,
+  transformFunction: null
 };
 
 export default function target(model, view) {
   model.attributeChanges.when('target', (vNode) => {
-    const [x, y] = vNode.properties.target
-      .split(',')
-      .map(Number)
-    ;
-    const update = Object.create(proto);
+    const emptyUpdate = Object.create(proto);
     const {emit} = view.viewBoxTransformations;
+    const {target} = vNode.properties;
 
+    // Clean up if the attribute has been removed.
+    if (target == null) {
+      emit('update', emptyUpdate);
+      return;
+    }
+
+    // Validate the attribute.
+    const [x, y] = target.split(',').map(Number);
     if (![x, y].every(Number.isFinite)) {
       emit('error', new Error(
         'drawingBoard.target: The <drawing-board> attribute `target` should ' +
         'match the form "`{Number} x`, `{Number} y`".'
       ));
-      emit('update', Object.assign(update, {transformFunction: null}));
+      emit('update', Object.assign(emptyUpdate));
     }
 
-    else emit('update', Object.assign(update, {
+    // Update viewBox transformations.
+    else emit('update', Object.assign(emptyUpdate, {
       transformFunction: (coords) => [
         coords[0] + x,
         coords[1] + y,

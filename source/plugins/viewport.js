@@ -6,9 +6,16 @@ const separator = /[×x]/;
 export default function viewport(model, view, elements) {
   model.attributeChanges.when('viewport', (vNode) => {
     const currentStyle = elements.viewport.getAttribute('style');
+    const {viewport} = vNode.properties;
+
+    // Clean up if the attribute has been removed.
+    if (viewport == null) {
+      view.initialViewBoxCoords.emit('update', null);
+      return;
+    }
 
     // Validate the attribute.
-    const [width, height] = vNode.properties.viewport
+    const [width, height] = viewport
       .split(separator)
       .map(Number)
     ;
