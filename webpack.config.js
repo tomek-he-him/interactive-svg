@@ -29,7 +29,10 @@ module.exports = {
     {
       loader: 'babel-loader',
       test: /\.js$/,
-      include: __dirname + '/source/'
+      include: [
+        __dirname + '/source/',
+        __dirname + '/node_modules/stereo/source/'
+      ]
     }
   ] }
 
