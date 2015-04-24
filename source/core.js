@@ -37,7 +37,7 @@ const HTMLDrawingBoardElement =
           const view = _view(viewport);
 
           // Initialize default plugins.
-          defaultPlugins.forEach((plugin) => plugin(model, view));
+          defaultPlugins.forEach((plugin) => plugin(model, view, elements));
 
           // Export data.
           Object.assign(this, { model, view, elements });
