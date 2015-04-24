@@ -4,21 +4,20 @@ var assign = require('101/assign');
 module.exports = {
 
   entry: assign(
-    {
-      drawingBoard: './source/core.js'
-    },
+    { core: './source/core.js' },
     asObject([
       'scale',
-      'viewport'
+      'viewport',
+      'autoregister'
     ].map(function(name) { return {
-      key: 'drawingBoard.' + name,
+      key: name,
       value: './source/plugins/' + name + '.js'
     }; }))
   ),
 
   output: {
     path: 'dist',
-    filename: '[name].js',
+    filename: 'drawingBoard.[name].js',
     libraryTarget: 'umd',
     library: ['drawingBoard', '[name]']
   },
