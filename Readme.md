@@ -1,10 +1,8 @@
 [![Travis – build status](https://img.shields.io/travis/tomekwi/drawing-board/master.svg?style=flat-square)](https://travis-ci.org/tomekwi/drawing-board)
- 
-[![Code climate](https://img.shields.io/codeclimate/github/tomekwi/drawing-board.svg?style=flat-square)](https://codeclimate.com/github/tomekwi/drawing-board)
- 
-[![David – status of dependencies](https://img.shields.io/david/tomekwi/drawing-board.svg?style=flat-square)](https://david-dm.org/tomekwi/drawing-board)
- 
-[![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
+ [![Code climate](https://img.shields.io/codeclimate/github/tomekwi/drawing-board.svg?style=flat-square)](https://codeclimate.com/github/tomekwi/drawing-board)
+ [![David – status of dependencies](https://img.shields.io/david/tomekwi/drawing-board.svg?style=flat-square)](https://david-dm.org/tomekwi/drawing-board)
+ [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
+ [![Stability: experimental](https://img.shields.io/badge/stability-experimental-red.svg?style=flat-square)](https://nodejs.org/api/documentation.html#documentation_stability_index)
 
 
 
