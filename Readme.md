@@ -69,57 +69,15 @@ This will create a block element with a base coordinate system. Size it with CSS
 The coordinate system is nothing more than an anchor for SVG pixels. Set attributes on the `<interactive-svg>` element to describe where and how you want your elements to be displayed.
 
 
-3) Pack your `<svg>` elements inside:
+3) Pack an `<svg>` element inside. Its `viewBox`, `width`, `height` and `style` attributes will be updated automatically as needed:
 
 ```html
-<drawing-board scale=".75">
-
-  <!--
-  An <svg> element you put here will have its (0, 0) point aligned with the
-  (0, 0) of the <drawing-board> – unless you set it otherwise. Read on.
-  -->
-  <svg><circle r="201" /></svg>
-
-  <!--
-  You can stuff many small <svg> elements here – or keep everything in one fat
-  <svg>. It's up to you.
-  -->
-  <svg>
-    <defs><clipPath id="outer"><circle r="200" /></clipPath></defs>
-    <image
-      x="-200" y="-200"
-      width="400" height="400"
-      xlink:href="http://placeimg.com/400/400/any"
-      style="clip-path: url(#outer)"
-    />
-  </svg>
-
-  <!--
-  Move individual <svg>s by specifying their `x` and `y` attributes. This one
-  will have its internal (0, 0) point at the <drawing-board>’s (-10, 0).
-  -->
-  <svg x="-10">
-    <circle
-      cx="10"
-      r="25"
-      fill="white"
-      stroke="black" stroke-width="1"
-    />
-  </svg>
-  
-</drawing-board>
+<interactive-svg scale=".75">
+  <svg></svg>
+</interactive-svg>
 
 <style> svg { overflow: visible } </style>
 ```
-
-The markup above will result in something similar to this:
-
-<p align="center">
-  <img
-    src="Readme/example.png"
-    width="302" height="302"
-  />
-</p>
 
 
 
