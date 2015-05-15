@@ -1,4 +1,4 @@
-{ "name": "drawing-board"
+{ "name": "interactive-svg"
 , "version": "0.0.0-in-progress"
 , "description": "A navigatable SVG canvas. Made for web-based CAD apps."
 
@@ -35,7 +35,6 @@
   , "virtual-dom": "2.0.1"
   }
 
-, "main": "/dist.es5/drawing-board.html"
 , "files":
   [ "/dist/"
   , "/Readme.md"
@@ -57,6 +56,6 @@
 , "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com>"
 , "repository":
   { "type": "git"
-  , "url": "git@github.com:tomekwi/drawing-board.git"
+  , "url": "git@github.com:tomekwi/interactive-svg.git"
   }
 }

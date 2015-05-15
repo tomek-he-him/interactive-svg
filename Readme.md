@@ -1,13 +1,23 @@
-[![Travis – build status](https://img.shields.io/travis/tomekwi/drawing-board/master.svg?style=flat-square)](https://travis-ci.org/tomekwi/drawing-board)
- [![Code climate](https://img.shields.io/codeclimate/github/tomekwi/drawing-board.svg?style=flat-square)](https://codeclimate.com/github/tomekwi/drawing-board)
- [![David – status of dependencies](https://img.shields.io/david/tomekwi/drawing-board.svg?style=flat-square)](https://david-dm.org/tomekwi/drawing-board)
- [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
- [![Stability: experimental](https://img.shields.io/badge/stability-experimental-red.svg?style=flat-square)](https://nodejs.org/api/documentation.html#documentation_stability_index)
+[![Travis – build status
+](https://img.shields.io/travis/tomekwi/interactive-svg/master.svg?style=flat-square)
+](https://travis-ci.org/tomekwi/interactive-svg)
+ [![Code climate
+](https://img.shields.io/codeclimate/github/tomekwi/interactive-svg.svg?style=flat-square)
+](https://codeclimate.com/github/tomekwi/interactive-svg)
+ [![David – status of dependencies
+](https://img.shields.io/david/tomekwi/interactive-svg.svg?style=flat-square)
+](https://david-dm.org/tomekwi/interactive-svg)
+ [![Code style: airbnb
+](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)
+](https://github.com/airbnb/javascript)
+ [![Stability: experimental
+](https://img.shields.io/badge/stability-experimental-red.svg?style=flat-square)
+](https://nodejs.org/api/documentation.html#documentation_stability_index)
 
 
 
 
-&lt;drawing-board&gt;
+&lt;interactive-svg&gt;
 =====================
 
 **A navigatable SVG canvas.**  
@@ -21,16 +31,16 @@
 Installation
 ------------
 
-*drawing-board* is available through NPM:
+*interactive-svg* is available through NPM:
 
 ```sh
-$ npm install drawing-board
+$ npm install interactive-svg
 ```
 
 – and through bower:
 
 ```sh
-$ bower install drawing-board
+$ bower install interactive-svg
 ```
 
 
@@ -42,21 +52,21 @@ Usage
 1) Import the element and desired plugins – it’s just pure JavaScript:
 
 ```html
-<script src="/path/to/drawing-board.min.js"></script>
-<script src="/path/to/drawing-board.scale.min.js"></script>
+<script src="/path/to/interactive-svg.min.js"></script>
+<script src="/path/to/interactive-svg.scale.min.js"></script>
 ```
 
 
-2) Add a `<drawing-board>` to your document:
+2) Add an `<interactive-svg>` to your document:
 
 ```html
-<drawing-board scale=".75">
-</drawing-board>
+<interactive-svg scale=".75">
+</interactive-svg>
 ```
 
 This will create a block element with a base coordinate system. Size it with CSS just like you’d size any other `<div>`.
 
-The coordinate system is nothing more than an anchor for SVG pixels. Set attributes on the `<drawing-board>` element to describe where and how you want your elements to be displayed.
+The coordinate system is nothing more than an anchor for SVG pixels. Set attributes on the `<interactive-svg>` element to describe where and how you want your elements to be displayed.
 
 
 3) Pack your `<svg>` elements inside:
@@ -123,11 +133,11 @@ Every feature is available as a separate plugin. All of them are currently in de
 ### `zoom`
 
 ```html
-<drawing-board
+<interactive-svg
   zoom.speed="3"
   >
   <!-- ... -->
-</drawing-board>
+</interactive-svg>
 ```
 
 - Enables zooming content in the viewport with the mouse wheel and the pinch-zoom event.
@@ -136,11 +146,11 @@ Every feature is available as a separate plugin. All of them are currently in de
 ### `pan`
 
 ```html
-<drawing-board
+<interactive-svg
   pan.mouse-button="right"
   >
   <!-- ... -->
-</drawing-board>
+</interactive-svg>
 ```
 
 - Enables panning content in the viewport with the mouse and the touch-drag event.
@@ -149,11 +159,11 @@ Every feature is available as a separate plugin. All of them are currently in de
 ### `scale`
 
 ```html
-<drawing-board
+<interactive-svg
   scale="1.5"
   >
   <!-- ... -->
-</drawing-board>
+</interactive-svg>
 ```
 
 - Requires the plugin `viewport`.
@@ -166,15 +176,15 @@ Every feature is available as a separate plugin. All of them are currently in de
 ### `target`
 
 ```html
-<drawing-board
+<interactive-svg
   target.x="100"
   target.y="-50"
   >
   <!-- ... -->
-</drawing-board>
+</interactive-svg>
 ```
 
-- The above says “the point at *(100, -50) SVG pixels* is at the center of the `<drawing-board>`”
+- The above says “the point at *(100, -50) SVG pixels* is at the center of the `<interactive-svg>`”
 
 - Supports all SVG units. Unitless means pixels, just like in SVG.
 
@@ -182,16 +192,16 @@ Every feature is available as a separate plugin. All of them are currently in de
 ### `viewport`
 
 ```html
-<drawing-board
+<interactive-svg
   viewport.width="400px"
   viewport.height="200px"
   style="width: 400px; height: 200px"
   >
   <!-- ... -->
-</drawing-board>
+</interactive-svg>
 ```
 
-- The above tells the `<drawing-board>` “your DOM element is 400 pixels wide”
+- The above tells the `<interactive-svg>` “your DOM element is 400 pixels wide”
 
 - Supports all CSS units.
 
@@ -201,12 +211,12 @@ Every feature is available as a separate plugin. All of them are currently in de
 ### `canvas`
 
 ```html
-<drawing-board
+<interactive-svg
   canvas.width="10000"
   canvas.height="6000"
   >
   <!-- ... -->
-</drawing-board>
+</interactive-svg>
 ```
 
 - The above will limit panning and zooming to an area of *10000 × 6000 SVG pixels*

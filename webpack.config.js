@@ -18,9 +18,9 @@ module.exports = {
 
   output: {
     path: 'dist',
-    filename: 'drawingBoard.[name].js',
+    filename: 'interactive-svg.[name].js',
     libraryTarget: 'umd',
-    library: ['drawingBoard', '[name]']
+    library: ['interactiveSvg', '[name]']
   },
 
   devtool: 'source-map',
