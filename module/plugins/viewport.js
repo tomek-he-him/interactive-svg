@@ -49,7 +49,7 @@ export default function viewport({model, view, elements}) {
         -(width / 2),
         -(height / 2),
         width,
-        height
+        height,
       ]);
     }
   });

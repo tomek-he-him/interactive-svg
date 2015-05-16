@@ -1,6 +1,6 @@
 const proto = {
   priority: 100,
-  transformFunction: null
+  transformFunction: null,
 };
 
 export default function scale({model, view}) {
@@ -35,7 +35,7 @@ export default function scale({model, view}) {
           targetX - width / 2 / cleanScale,
           targetY - height / 2 / cleanScale,
           width / cleanScale,
-          height / cleanScale
+          height / cleanScale,
         ];
       }
     }));

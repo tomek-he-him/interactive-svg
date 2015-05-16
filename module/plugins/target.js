@@ -1,6 +1,6 @@
 const proto = {
   priority: 10,
-  transformFunction: null
+  transformFunction: null,
 };
 
 export default function target({model, view}) {
@@ -31,7 +31,7 @@ export default function target({model, view}) {
         coords[0] + x,
         coords[1] + y,
         coords[2],
-        coords[3]
+        coords[3],
       ]
     }));
   });

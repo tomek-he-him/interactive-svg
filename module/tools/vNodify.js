@@ -4,7 +4,7 @@ let vNodeProto = {
   tagName: 'DIV',
   children: [],
   type: 'VirtualNode',
-  version: '2'
+  version: '2',
 };
 
 export default function vNodify(element) {
