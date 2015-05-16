@@ -7,10 +7,8 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 const XMLNS_NS = 'http://www.w3.org/2000/xmlns/';
 const XLINK_NS = 'http://www.w3.org/1999/xlink';
 
-const defaultPlugins = new Set();
-
-const HTMLDrawingBoardElement =
-  document.registerElement('interactive-svg', {
+export default ({plugins}) => {
+  return document.registerElement('interactive-svg', {
     prototype: Object.assign(
       Object.create(HTMLElement.prototype),
       {
@@ -38,7 +36,7 @@ const HTMLDrawingBoardElement =
           const view = _view(viewport);
 
           // Initialize default plugins.
-          defaultPlugins.forEach((plugin) => plugin(model, view, elements));
+          plugins.forEach((plugin) => plugin(model, view, elements));
 
           // Export data.
           Object.assign(this, { model, view, elements });
@@ -47,10 +45,5 @@ const HTMLDrawingBoardElement =
         attributeChangedCallback: _model.attributeChangedCallback
       }
     )
-  })
-;
-
-export {
-  HTMLDrawingBoardElement,
-  defaultPlugins
+  });
 };
