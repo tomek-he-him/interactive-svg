@@ -4,16 +4,18 @@ var assign = require('101/assign');
 module.exports = {
 
   entry: assign(
-    { core: './module/core.js' },
+    {
+      core: './module/core.js',
+      autoregister: './module/autoregister.js',
+    },
     asObject([
       'scale',
       'target',
       'viewport',
-      'autoregister'
-    ].map(function(name) { return {
+    ].map(function(name) {return {
       key: name,
-      value: './module/plugins/' + name + '.js'
-    }; }))
+      value: './module/plugins/' + name + '.js',
+    };}))
   ),
 
   output: {
@@ -31,8 +33,8 @@ module.exports = {
       test: /\.js$/,
       include: [
         __dirname + '/module/',
-        __dirname + '/node_modules/stereo/module/'
-      ]
+        __dirname + '/node_modules/stereo/module/',
+      ],
     }
   ] }
 
