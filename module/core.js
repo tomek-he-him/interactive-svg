@@ -39,7 +39,7 @@ export default ({plugins}) => {
           plugins.forEach((plugin) => plugin({model, view, elements}));
 
           // Export data.
-          Object.assign(this, { model, view, elements });
+          Object.assign(this, {model, view, elements});
         },
 
         attributeChangedCallback: _model.attributeChangedCallback
