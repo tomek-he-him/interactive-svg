@@ -4,7 +4,7 @@ var assign = require('101/assign');
 module.exports = {
 
   entry: assign(
-    { core: './source/core.js' },
+    { core: './module/core.js' },
     asObject([
       'scale',
       'target',
@@ -12,7 +12,7 @@ module.exports = {
       'autoregister'
     ].map(function(name) { return {
       key: name,
-      value: './source/plugins/' + name + '.js'
+      value: './module/plugins/' + name + '.js'
     }; }))
   ),
 
@@ -30,8 +30,8 @@ module.exports = {
       loader: 'babel-loader',
       test: /\.js$/,
       include: [
-        __dirname + '/source/',
-        __dirname + '/node_modules/stereo/source/'
+        __dirname + '/module/',
+        __dirname + '/node_modules/stereo/module/'
       ]
     }
   ] }
