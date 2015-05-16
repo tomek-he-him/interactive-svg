@@ -10,7 +10,7 @@ const XLINK_NS = 'http://www.w3.org/1999/xlink';
 const defaultPlugins = new Set();
 
 const HTMLDrawingBoardElement =
-  document.registerElement('drawing-board', {
+  document.registerElement('interactive-svg', {
     prototype: Object.assign(
       Object.create(HTMLElement.prototype),
       {
