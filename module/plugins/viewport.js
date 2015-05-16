@@ -3,7 +3,7 @@ import vPatchify from '../tools/vPatchify';
 const dimension = /^\s*(?:width|height):/;
 const separator = /[×x]/;
 
-export default function viewport(model, view, elements) {
+export default function viewport({model, view, elements}) {
   model.attributeChanges.when('viewport', (vNode) => {
     const currentStyle = elements.viewport.getAttribute('style');
     const {viewport} = vNode.properties;

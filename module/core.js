@@ -36,7 +36,7 @@ export default ({plugins}) => {
           const view = _view(viewport);
 
           // Initialize default plugins.
-          plugins.forEach((plugin) => plugin(model, view, elements));
+          plugins.forEach((plugin) => plugin({model, view, elements}));
 
           // Export data.
           Object.assign(this, { model, view, elements });

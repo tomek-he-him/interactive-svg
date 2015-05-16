@@ -3,7 +3,7 @@ const proto = {
   transformFunction: null
 };
 
-export default function target(model, view) {
+export default function target({model, view}) {
   model.attributeChanges.when('target', (vNode) => {
     const emptyUpdate = Object.create(proto);
     const {emit} = view.viewBoxTransformations;

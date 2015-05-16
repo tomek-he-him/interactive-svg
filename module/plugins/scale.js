@@ -3,7 +3,7 @@ const proto = {
   transformFunction: null
 };
 
-export default function scale(model, view) {
+export default function scale({model, view}) {
   model.attributeChanges.when('scale', (vNode) => {
     const emptyUpdate = Object.create(proto);
     const {emit} = view.viewBoxTransformations;
