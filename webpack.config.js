@@ -20,7 +20,7 @@ module.exports = {
     path: 'dist',
     filename: 'interactive-svg.[name].js',
     libraryTarget: 'umd',
-    library: ['interactiveSvg', '[name]']
+    library: ['interactiveSvg', '[name]'],
   },
 
   devtool: 'source-map',
