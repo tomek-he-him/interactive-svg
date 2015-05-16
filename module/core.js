@@ -1,5 +1,3 @@
-import 'babel/polyfill';
-
 import _model from './core/model';
 import _view from './core/view';
 
