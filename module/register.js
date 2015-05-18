@@ -14,5 +14,5 @@ if (
 }
 
 else console.warn(
-  'drawingBoard.autoregister: drawingBoard.core isn’t loaded.'
+  'drawingBoard.register: drawingBoard.core isn’t loaded.'
 );

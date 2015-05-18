@@ -6,7 +6,7 @@ module.exports = {
   entry: assign(
     {
       core: './module/core.js',
-      autoregister: './module/autoregister.js',
+      register: './module/register.js',
     },
     asObject([
       'scale',
