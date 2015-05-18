@@ -1,4 +1,4 @@
-import stereo from 'stereo/source/index';
+import stereo from 'stereo/module';
 import vNodify from '../tools/vNodify';
 
 function model (root) {

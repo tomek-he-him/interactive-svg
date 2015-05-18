@@ -1,4 +1,4 @@
-import stereo from 'stereo';
+import stereo from 'stereo/module';
 
 import updateTransformation from './view/updateTransformation';
 import applyTransformations from './view/applyTransformations';
