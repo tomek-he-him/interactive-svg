@@ -5,7 +5,6 @@ module.exports = {
 
   entry: assign(
     {
-      core: './module/core.js',
       register: './module/register.js',
     },
     asObject([
@@ -31,10 +30,7 @@ module.exports = {
     {
       loader: 'babel-loader',
       test: /\.js$/,
-      include: [
-        __dirname + '/module/',
-        __dirname + '/node_modules/stereo/module/',
-      ],
+      include: /\/module(\/|\.js$)/,
     }
   ] }
 
