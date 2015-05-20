@@ -1,9 +1,6 @@
 [![Travis – build status
 ](https://img.shields.io/travis/tomekwi/interactive-svg/master.svg?style=flat-square)
 ](https://travis-ci.org/tomekwi/interactive-svg)
- [![Code climate
-](https://img.shields.io/codeclimate/github/tomekwi/interactive-svg.svg?style=flat-square)
-](https://codeclimate.com/github/tomekwi/interactive-svg)
  [![David – status of dependencies
 ](https://img.shields.io/david/tomekwi/interactive-svg.svg?style=flat-square)
 ](https://david-dm.org/tomekwi/interactive-svg)
