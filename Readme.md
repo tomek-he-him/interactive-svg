@@ -21,7 +21,7 @@
 =====================
 
 **A navigatable SVG canvas.**  
-**Perfect for web-based design apps.**
+**Perfect for design apps and maps.**
 
 *Heads up! This is totally a work in progress. Ideas are very welcome :)*
 
@@ -49,12 +49,28 @@ $ bower install interactive-svg
 Usage
 -----
 
-1) Import the element and desired plugins – it’s just pure JavaScript:
+**First,** import the element and desired plugins – it’s just pure JavaScript. Be sure to import `interactive-svg.register.js` after that – it will register the custom element along with all loaded plugins.
 
 ```html
-<script src="/path/to/interactive-svg.min.js"></script>
-<script src="/path/to/interactive-svg.scale.min.js"></script>
+<script src="/path/to/interactive-svg.core.js"></script>
+<script src="/path/to/interactive-svg.viewport.js"></script>
+<script src="/path/to/interactive-svg.scale.js"></script>
+<script src="/path/to/interactive-svg.register.js"></script>
 ```
+
+If you’re building your app with a module bundler like [*webpack*][], you can also `require` the parts:
+
+```js
+var interactiveSvg = require('interactive-svg/core');
+var viewport = require('interactive-svg/plugins/viewport');
+var scale = require('interactive-svg/plugins/scale');
+
+interactiveSvg({
+  plugins: [viewport, scale]
+});
+```
+
+[webpack]:  https://webpack.github.io
 
 
 2) Add an `<interactive-svg>` to your document:
