@@ -23,7 +23,7 @@ export default ({plugins}) => {
           );
 
           // Save references to the DOM.
-          const elements = { root, viewport };
+          const elements = {root, viewport};
 
           // Initialize the model and view.
           const model = createModel(root);
