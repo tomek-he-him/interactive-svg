@@ -15,7 +15,7 @@ export default ({plugins}) => {
           const root = this;
           const viewport = arrayFind(
             arrayFrom(root.children),
-            (node) => node.tagName === 'SVG'
+            (node) => node.tagName.toLowerCase() === 'svg'
           );
           if (!viewport) throw new Error('interactive-svg: ' +
             'No `<svg>` element found. Make sure your `<interactive-svg>` ' +
