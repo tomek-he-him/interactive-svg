@@ -46,17 +46,22 @@ $ bower install interactive-svg
 
 
 
-Usage
------
+Usage with `<script>` tags
+--------------------------
 
-**First,** import the element and desired plugins – it’s just pure JavaScript. Be sure to import `interactive-svg.register.js` after that – it will register the custom element along with all loaded plugins.
+**First,** import the desired plugins and register the element. All plugins loaded before `interactive-svg.register.js` will be registered by default on every `<interactive-svg>` element.
 
 ```html
-<script src="/path/to/interactive-svg.core.js"></script>
 <script src="/path/to/interactive-svg.viewport.js"></script>
 <script src="/path/to/interactive-svg.scale.js"></script>
 <script src="/path/to/interactive-svg.register.js"></script>
 ```
+
+
+
+
+Usage with a bundler
+--------------------
 
 If you’re building your app with a module bundler like [*webpack*][], you can also `require` the parts:
 
