@@ -1,19 +1,18 @@
 <!doctype html>
 
-<script src="../../dist/drawingBoard.core.js"></script>
-<script src="../../dist/drawingBoard.scale.js"></script>
-<script src="../../dist/drawingBoard.target.js"></script>
-<script src="../../dist/drawingBoard.viewport.js"></script>
-<script src="../../dist/drawingBoard.autoregister.js"></script>
+<script src="../../dist/interactive-svg.scale.js"></script>
+<script src="../../dist/interactive-svg.target.js"></script>
+<script src="../../dist/interactive-svg.viewport.js"></script>
+<script src="../../dist/interactive-svg.register.js"></script>
 
-<drawing-board
+<interactive-svg
   scale="0.75"
   viewport="300 × 300"
-  >
+  ><svg>
 
   <!--
   An <svg> element you put here will have its (0, 0) point aligned with the
-  (0, 0) of the <drawing-board> – unless you set it otherwise. Read on.
+  (0, 0) of the <interactive-svg> – unless you set it otherwise. Read on.
   -->
   <svg><circle r="201" /></svg>
 
@@ -33,7 +32,7 @@
 
   <!--
   Move individual <svg>s by specifying their `x` and `y` attributes. This one
-  will have its internal (0, 0) point at the <drawing-board>’s (-10, 0).
+  will have its internal (0, 0) point at the <interactive-svg>’s (-10, 0).
   -->
   <svg x="-10">
     <circle
@@ -44,6 +43,6 @@
     />
   </svg>
 
-</drawing-board>
+</svg></interactive-svg>
 
 <style> svg { overflow: visible } </style>
