@@ -2,8 +2,8 @@ import assign from 'object-assign';
 import arrayFrom from 'array-from';
 import arrayFind from 'array-find';
 
-import _model from './core/model';
-import _view from './core/view';
+import createModel from './core/model';
+import createView from './core/view';
 
 export default ({plugins}) => {
   return document.registerElement('interactive-svg', {
@@ -26,8 +26,8 @@ export default ({plugins}) => {
           const elements = { root, viewport };
 
           // Initialize the model and view.
-          const model = _model(root);
-          const view = _view(viewport);
+          const model = createModel(root);
+          const view = createView(viewport);
 
           // Initialize default plugins.
           plugins.forEach((plugin) => plugin({model, view, elements}));
@@ -36,7 +36,7 @@ export default ({plugins}) => {
           assign(this, {model, view, elements});
         },
 
-        attributeChangedCallback: _model.attributeChangedCallback
+        attributeChangedCallback: createModel.attributeChangedCallback
       }
     )
   });
