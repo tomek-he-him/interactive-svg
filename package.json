@@ -1,5 +1,5 @@
 { "name": "interactive-svg"
-, "version": "0.0.0-work-in-progress"
+, "version": "0.0.1-experimental"
 , "description": "A navigatable SVG canvas. Made for web-based CAD apps."
 
 , "dependencies":
