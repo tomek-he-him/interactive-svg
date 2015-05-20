@@ -3,7 +3,9 @@
 , "description": "A navigatable SVG canvas. Made for web-based CAD apps."
 
 , "dependencies":
-  { "as": "0.4.1"
+  { "array-from": "1.0.0"
+  , "as": "0.4.1"
+  , "object-assign": "2.0.0"
   , "stereo": "0.4.0"
   }
 

@@ -1,5 +1,7 @@
+import assign from 'object-assign';
+
 export default (properties) => ({
   '0': {
-    patch: Object.assign({}, properties),
+    patch: assign({}, properties),
   },
 });

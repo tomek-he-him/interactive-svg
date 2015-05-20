@@ -1,3 +1,5 @@
+import assign from 'object-assign';
+
 import plugin from '../tools/plugin';
 
 const proto = {
@@ -24,11 +26,11 @@ export default plugin(function target({model, view}) {
         'drawingBoard.target: The <drawing-board> attribute `target` should ' +
         'match the form "`{Number} x`, `{Number} y`".'
       ));
-      emit('add', Object.assign(emptyUpdate));
+      emit('add', assign(emptyUpdate));
     }
 
     // Update viewBox transformations.
-    else emit('add', Object.assign(emptyUpdate, {
+    else emit('add', assign(emptyUpdate, {
       transformFunction: (coords) => [
         coords[0] + x,
         coords[1] + y,

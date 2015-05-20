@@ -1,3 +1,5 @@
+import assign from 'object-assign';
+
 import plugin from '../tools/plugin';
 
 const proto = {
@@ -28,7 +30,7 @@ export default plugin(function scale({model, view}) {
     }
 
     // Inject the viewBox transformation.
-    else emit('add', Object.assign(emptyUpdate, {
+    else emit('add', assign(emptyUpdate, {
       transformFunction: (coords) => {
         const [x, y, width, height] = coords;
         const targetX = x + width / 2;

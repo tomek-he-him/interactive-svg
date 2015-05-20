@@ -1,11 +1,13 @@
 import stereo from 'stereo/module';
+import arrayFrom from 'array-from';
+
 import vNodify from '../tools/vNodify';
 
 function model (root) {
   const attributeChanges = stereo();
 
   const vNode = vNodify(root);
-  Array.from(root.attributes).forEach((attribute) => {
+  arrayFrom(root.attributes).forEach((attribute) => {
     attributeChanges.emit(attribute.name, vNode);
   });
 

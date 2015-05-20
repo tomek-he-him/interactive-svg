@@ -1,3 +1,5 @@
+import assign from 'object-assign';
+
 import _model from './core/model';
 import _view from './core/view';
 
@@ -7,7 +9,7 @@ const XLINK_NS = 'http://www.w3.org/1999/xlink';
 
 export default ({plugins}) => {
   return document.registerElement('interactive-svg', {
-    prototype: Object.assign(
+    prototype: assign(
       Object.create(HTMLElement.prototype),
       {
         createdCallback() {
@@ -37,7 +39,7 @@ export default ({plugins}) => {
           plugins.forEach((plugin) => plugin({model, view, elements}));
 
           // Export data.
-          Object.assign(this, {model, view, elements});
+          assign(this, {model, view, elements});
         },
 
         attributeChangedCallback: _model.attributeChangedCallback
