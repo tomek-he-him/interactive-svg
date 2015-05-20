@@ -1,9 +1,11 @@
+import plugin from '../tools/plugin';
+
 const proto = {
   priority: 100,
   transformFunction: null,
 };
 
-export default function scale({model, view}) {
+export default plugin(function scale({model, view}) {
   model.attributeChanges.when('scale', (vNode) => {
     const emptyUpdate = Object.create(proto);
     const {emit} = view.viewBoxTransformations;
@@ -40,4 +42,4 @@ export default function scale({model, view}) {
       }
     }));
   });
-}
+});

@@ -1,18 +1,15 @@
-/* global drawingBoard */
-let core;
+/* global interactiveSvg */
+import core from './core';
 
-if (
-  typeof drawingBoard === 'object' &&
-  typeof (core = drawingBoard.core) === 'function'
-) {
-  core({
-    plugins: Object.keys(drawingBoard)
-      .filter((key) => key !== 'core')
-      .map((key) => drawingBoard[key])
+if (typeof interactiveSvg === 'object') {
+  interactiveSvg.HTMLInteractiveSvgElement = core({
+    plugins: Object.keys(interactiveSvg)
+      .filter((key) => interactiveSvg[key].type === 'plugin')
+      .map((key) => interactiveSvg[key])
     ,
   });
 }
 
 else console.warn(
-  'drawingBoard.register: drawingBoard.core isn’t loaded.'
+  'interactiveSvg.register: interactiveSvg.core isn’t loaded.'
 );

@@ -1,9 +1,11 @@
+import plugin from '../tools/plugin';
+
 const proto = {
   priority: 10,
   transformFunction: null,
 };
 
-export default function target({model, view}) {
+export default plugin(function target({model, view}) {
   model.attributeChanges.when('target', (vNode) => {
     const emptyUpdate = Object.create(proto);
     const {emit} = view.viewBoxTransformations;
@@ -35,4 +37,4 @@ export default function target({model, view}) {
       ]
     }));
   });
-}
+});
