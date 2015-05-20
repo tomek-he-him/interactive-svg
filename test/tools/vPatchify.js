@@ -3,7 +3,7 @@ import diff from 'virtual-dom/diff';
 import h from 'virtual-dom/h';
 import objectContains from '../test-tools/objectContains';
 
-import vPatchify from '../../source/tools/vPatchify';
+import vPatchify from '../../module/tools/vPatchify';
 
 test('tools/vPatchify:  ' +
   'Produces a VirtualPatch-compatible object.', (is) => {

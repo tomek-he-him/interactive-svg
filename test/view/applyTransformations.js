@@ -2,7 +2,7 @@
 import test from 'tape-catch';
 
 import applyTransformations from
-  '../../source/core/view/applyTransformations'
+  '../../module/core/view/applyTransformations'
 ;
 
 
