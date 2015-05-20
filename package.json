@@ -40,6 +40,8 @@
 
 , "files":
   [ "/dist/"
+  , "/module/"
+  , "/module.js"
   , "/Readme.md"
   , "/License.md"
   ]
