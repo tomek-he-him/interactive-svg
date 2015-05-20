@@ -43,10 +43,12 @@ $ bower install interactive-svg
 
 
 
-Usage with `<script>` tags
---------------------------
+Usage
+-----
 
-**First,** import the desired plugins and register the element. All plugins loaded before `interactive-svg.register.js` will be registered by default on every `<interactive-svg>` element.
+**1**
+
+**If you’re fine using `<script>` tags,** import the desired plugins and register the element. All plugins loaded before `interactive-svg.register.js` will be registered by default on every `<interactive-svg>` element.
 
 ```html
 <script src="/path/to/interactive-svg.viewport.js"></script>
@@ -55,12 +57,7 @@ Usage with `<script>` tags
 ```
 
 
-
-
-Usage with a bundler
---------------------
-
-If you’re building your app with a module bundler like [*webpack*][], you can also `require` the parts:
+**If you’re building your app with a bundler** like [*webpack*][], you can also `require` the parts:
 
 ```js
 var interactiveSvg = require('interactive-svg/core');
@@ -72,30 +69,33 @@ interactiveSvg({
 });
 ```
 
-[webpack]:  https://webpack.github.io
+[*webpack*]:  https://webpack.github.io
 
 
-2) Add an `<interactive-svg>` to your document:
+**2**
 
-```html
-<interactive-svg scale=".75">
-</interactive-svg>
-```
-
-This will create a block element with a base coordinate system. Size it with CSS just like you’d size any other `<div>`.
-
-The coordinate system is nothing more than an anchor for SVG pixels. Set attributes on the `<interactive-svg>` element to describe where and how you want your elements to be displayed.
-
-
-3) Pack an `<svg>` element inside. Its `viewBox`, `width`, `height` and `style` attributes will be updated automatically as needed:
+Add an `<interactive-svg>` to your document. Pack an `<svg>` element inside. 
 
 ```html
-<interactive-svg scale=".75">
+<interactive-svg>
   <svg></svg>
 </interactive-svg>
-
-<style> svg { overflow: visible } </style>
 ```
+
+
+**3**
+
+Add attributes to your `<interactive-svg>`.
+
+```html
+<interactive-svg
+  viewport="500 × 300"
+  scale="2"
+  ><svg></svg>
+</interactive-svg>
+```
+
+The `viewBox`, `width`, `height` and `style` of the `<svg>` will be updated automatically as needed.
 
 
 
@@ -169,9 +169,7 @@ Every feature is available as a separate plugin. All of them are currently in de
 
 ```html
 <interactive-svg
-  viewport.width="400px"
-  viewport.height="200px"
-  style="width: 400px; height: 200px"
+  viewport="400 × 200"
   >
   <!-- ... -->
 </interactive-svg>
