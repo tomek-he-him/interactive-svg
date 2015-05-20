@@ -1,11 +1,9 @@
 import assign from 'object-assign';
+import arrayFrom from 'array-from';
+import arrayFind from 'array-find';
 
 import _model from './core/model';
 import _view from './core/view';
-
-const SVG_NS = 'http://www.w3.org/2000/svg';
-const XMLNS_NS = 'http://www.w3.org/2000/xmlns/';
-const XLINK_NS = 'http://www.w3.org/1999/xlink';
 
 export default ({plugins}) => {
   return document.registerElement('interactive-svg', {
@@ -14,19 +12,15 @@ export default ({plugins}) => {
       {
         createdCallback() {
 
-          // Create internal DOM. We’d love to use shadow DOM here. But alas SVG
-          // support in shadow DOM is flaky. So unfortunately we need to expose
-          // the guts.
           const root = this;
-          const viewport = document.createElementNS(SVG_NS, 'svg');
-          viewport.setAttributeNS(XMLNS_NS, 'xmlns:xlink', XLINK_NS);
-          viewport.setAttribute('style', 'display:block');
-
-          let firstChild;
-          while ((firstChild = root.firstChild)) {
-            viewport.appendChild(firstChild);
-          }
-          root.appendChild(viewport);
+          const viewport = arrayFind(
+            arrayFrom(root.children),
+            (node) => node.tagName === 'SVG'
+          );
+          if (!viewport) throw new Error('interactive-svg: ' +
+            'No `<svg>` element found. Make sure your `<interactive-svg>` ' +
+            'has an `<svg>` as a direct child.'
+          );
 
           // Save references to the DOM.
           const elements = { root, viewport };
