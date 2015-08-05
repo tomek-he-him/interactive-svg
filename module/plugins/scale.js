@@ -1,6 +1,6 @@
-import assign from 'object-assign';
-
 import plugin from '../tools/plugin';
+
+const assign = require('object-assign');
 
 const proto = {
   priority: 100,

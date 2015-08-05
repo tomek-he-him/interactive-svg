@@ -1,5 +1,5 @@
-import asObject from 'as/object';
-import arrayFrom from 'array-from';
+const asObject = require('as/object');
+const arrayFrom = require('array-from');
 
 export default function hashifyAttributes(attributes) {
   return asObject(

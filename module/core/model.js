@@ -1,7 +1,7 @@
-import stereo from 'stereo/module';
-import arrayFrom from 'array-from';
-
 import vNodify from '../tools/vNodify';
+
+const stereo = require('stereo');
+const arrayFrom = require('array-from');
 
 function model (root) {
   const attributeChanges = stereo();

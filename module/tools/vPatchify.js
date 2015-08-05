@@ -1,4 +1,4 @@
-import assign from 'object-assign';
+const assign = require('object-assign');
 
 export default (properties) => ({
   '0': {

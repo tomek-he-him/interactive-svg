@@ -1,9 +1,9 @@
-import assign from 'object-assign';
-import arrayFrom from 'array-from';
-import arrayFind from 'array-find';
-
 import createModel from './core/model';
 import createView from './core/view';
+
+const assign = require('object-assign');
+const arrayFrom = require('array-from');
+const arrayFind = require('array-find');
 
 export default ({plugins}) => {
   return document.registerElement('interactive-svg', {

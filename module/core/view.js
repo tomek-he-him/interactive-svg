@@ -1,9 +1,9 @@
-import stereo from 'stereo/module';
-
 import updateTransformation from './view/updateTransformation';
 import applyTransformations from './view/applyTransformations';
 import vPatchify from '../tools/vPatchify';
 import updateElement from '../tools/updateElement';
+
+const stereo = require('stereo');
 
 export default function view (viewportElement) {
 
