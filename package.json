@@ -1,66 +1,59 @@
-{ "name": "interactive-svg"
-, "version": "0.0.3-experimental"
-, "description": "A navigatable SVG canvas. Made for web-based CAD apps."
-
-, "dependencies":
-  { "array-find": "stefanduberg/array-find#88d83a9"
-  , "array-from": "1.0.0"
-  , "as": "0.4.1"
-  , "object-assign": "2.0.0"
-  , "stereo": "0.4.0"
-  }
-
-, "scripts":
-  { "develop": "nodangel  --watch source  --watch test  --exec npm test"
-  , "prepublish": "gulp build"
-  , "test": "babel-node test.js | tap-spec"
-  , "start": "echo 'Head over to http://localhost:9637/test/fixtures/basic.html and see miracles.\n' && livereloadx --static --port 9637 --exclude 'source/*' --exclude 'node_modules/*'"
-  }
-
-, "devDependencies":
-  { "tap-spec": "2.2.2"
-  , "nodangel": "1.3.8"
-  , "livereloadx": "0.3.7"
-
-  , "babel": "5.0.12"
-  , "tape-catch": "1.0.4"
-
-  , "101": "0.14.1"
-  , "babel-loader": "5.0.0"
-  , "del": "1.1.1"
-  , "gulp": "3.8.11"
-  , "gulp-help": "1.3.4"
-  , "gulp-rename": "1.2.2"
-  , "gulp-uglify": "1.2.0"
-  , "webpack": "1.8.2"
-
-  , "jsdom": "3.1.2"
-  , "virtual-dom": "2.0.1"
-  }
-
-, "files":
-  [ "/dist/"
-  , "/module/"
-  , "/module.js"
-  , "/Readme.md"
-  , "/License.md"
-  ]
-
-, "license": "MIT"
-, "keywords":
-  [ "web-component"
-  , "2d"
-  , "canvas"
-  , "worksheet"
-  , "interactive"
-  , "zoom"
-  , "pan"
-  , "web component"
-  , "webcomponent"
-  ]
-, "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com>"
-, "repository":
-  { "type": "git"
-  , "url": "git@github.com:tomekwi/interactive-svg.git"
+{
+  "name": "interactive-svg",
+  "version": "0.0.4-experimental",
+  "description": "A navigatable SVG canvas. Made for web-based CAD apps.",
+  "dependencies": {
+    "array-find": "stefanduberg/array-find#88d83a9",
+    "array-from": "1.0.0",
+    "as": "0.4.1",
+    "object-assign": "2.0.0",
+    "stereo": "0.4.0"
+  },
+  "scripts": {
+    "develop": "nodangel  --watch source  --watch test  --exec npm test",
+    "prepublish": "gulp build",
+    "test": "babel-node test.js | tap-spec",
+    "start": "echo 'Head over to http://localhost:9637/test/fixtures/basic.html and see miracles.\n' && livereloadx --static --port 9637 --exclude 'source/*' --exclude 'node_modules/*'"
+  },
+  "devDependencies": {
+    "101": "0.14.1",
+    "tap-spec": "2.2.2",
+    "nodangel": "1.3.8",
+    "livereloadx": "0.3.7",
+    "babel": "5.0.12",
+    "tape-catch": "1.0.4",
+    "babel-loader": "5.0.0",
+    "del": "1.1.1",
+    "gulp": "3.8.11",
+    "gulp-help": "1.3.4",
+    "gulp-rename": "1.2.2",
+    "gulp-uglify": "1.2.0",
+    "webpack": "1.8.2",
+    "jsdom": "3.1.2",
+    "virtual-dom": "2.0.1"
+  },
+  "files": [
+    "/dist/",
+    "/module/",
+    "/module.js",
+    "/Readme.md",
+    "/License.md"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "web-component",
+    "2d",
+    "canvas",
+    "worksheet",
+    "interactive",
+    "zoom",
+    "pan",
+    "web component",
+    "webcomponent"
+  ],
+  "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tomekwi/interactive-svg.git"
   }
 }
