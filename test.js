@@ -1,2 +1,2 @@
-import './test/tools';
-import './test/view';
+require('./test/tools');
+require('./test/view');

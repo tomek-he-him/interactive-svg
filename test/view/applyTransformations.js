@@ -1,9 +1,8 @@
 /* jshint elision: true */
-import test from 'prova';
+const test = require('prova');
 
-import applyTransformations from
-  '../../module/core/view/applyTransformations'
-;
+const applyTransformations =
+  require('../../module/core/view/applyTransformations');
 
 
 test('view/applyTransformations:  ' +
@@ -60,7 +59,7 @@ test('view/applyTransformations:  ' +
     );
 
     is.ok(applyTransformations([
-      () => /anything/
+      () => {}
     ]).error,
       'when it becomes a non-array'
     );

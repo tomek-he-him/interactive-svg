@@ -1,4 +1,4 @@
-import vNodify from '../tools/vNodify';
+const vNodify = require('../tools/vNodify');
 
 const stereo = require('stereo');
 const arrayFrom = require('array-from');
@@ -18,4 +18,4 @@ model.attributeChangedCallback = function attributeChangedCallback(attribute) {
   this.model.attributeChanges.emit(attribute, vNodify(this));
 };
 
-export default model;
+module.exports = model;

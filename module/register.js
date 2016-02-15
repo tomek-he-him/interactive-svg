@@ -1,5 +1,5 @@
 /* global interactiveSvg */
-import core from './core';
+const core = require('./core');
 
 if (typeof interactiveSvg === 'object') {
   interactiveSvg.HTMLInteractiveSvgElement = core({

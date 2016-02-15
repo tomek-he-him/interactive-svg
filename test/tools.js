@@ -1,4 +1,4 @@
-import './tools/hashifyAttributes';
-import './tools/updateElement';
-import './tools/vNodify';
-import './tools/vPatchify';
+require('./tools/hashifyAttributes');
+require('./tools/updateElement');
+require('./tools/vNodify');
+require('./tools/vPatchify');

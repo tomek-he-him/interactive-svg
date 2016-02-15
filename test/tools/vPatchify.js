@@ -1,9 +1,9 @@
-import test from 'prova';
-import diff from 'virtual-dom/diff';
-import h from 'virtual-dom/h';
-import objectContains from '../test-tools/objectContains';
+const test = require('prova');
+const diff = require('virtual-dom/diff');
+const h = require('virtual-dom/h');
+const objectContains = require('../test-tools/objectContains');
 
-import vPatchify from '../../module/tools/vPatchify';
+const vPatchify = require('../../module/tools/vPatchify');
 
 test('tools/vPatchify:  ' +
   'Produces a VirtualPatch-compatible object.', (is) => {

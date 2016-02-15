@@ -1,6 +1,10 @@
-import scale from './plugins/scale';
-import target from './plugins/target';
-import viewport from './plugins/viewport';
+const scale = require('./plugins/scale');
+const target = require('./plugins/target');
+const viewport = require('./plugins/viewport');
 
-export {scale, target, viewport};
-export const all = [scale, target, viewport];
+module.exports = {
+  scale,
+  target,
+  viewport,
+  all: [scale, target, viewport],
+};

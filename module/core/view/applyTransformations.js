@@ -2,7 +2,7 @@ function applyTransformation(previous, current) {
   return current(previous);
 }
 
-export default function applyTransformations(transformations, initialValue) {
+module.exports = function applyTransformations(transformations, initialValue) {
   // Apply transformations and validate the result.
   const viewBoxCoordinates = transformations.reduce(
     applyTransformation,

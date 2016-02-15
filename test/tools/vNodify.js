@@ -1,12 +1,12 @@
-import test from 'prova';
-import isVNode from 'virtual-dom/vnode/is-vnode';
-import element from '../test-tools/element';
+const test = require('prova');
+const isVNode = require('virtual-dom/vnode/is-vnode');
+const element = require('../test-tools/element');
 
-import vNodify from '../../module/tools/vNodify';
+const vNodify = require('../../module/tools/vNodify');
 
 test('tools/vNodify:  ' +
   'Converts an element to a VirtualNode.', (is) => {
-    let node1 = vNodify({
+    const node1 = vNodify({
       attributes: [
         { name: 'class', value: 'class one two three' },
         { name: 'id', value: 'element-id' }
@@ -34,7 +34,7 @@ test('tools/vNodify:  ' +
       '— directly from the prototype'
     );
 
-    let node2 = vNodify(element(
+    const node2 = vNodify(element(
       '<custom-element ' +
         'class="anything" ' +
         'align="left" ' +

@@ -1,15 +1,14 @@
-import { jsdom } from 'jsdom';
+const { jsdom } = require('jsdom');
 
-let div = jsdom().defaultView.document.createElement('div');
+const div = jsdom().defaultView.document.createElement('div');
 
-export default function element(htmlString) {
+module.exports = function element(htmlString) {
   // Grab the first node.
   div.innerHTML = htmlString;
-  let firstNode = div.childNodes[0] || null;
+  const firstNode = div.childNodes[0] || null;
 
   // Clear the div.
-  let lastNode;
-  while ((lastNode = div.lastChild)) div.removeChild(lastNode);
+  while (div.lastChild) div.removeChild(div.lastChild);
 
   // Return the first node.
   return firstNode;

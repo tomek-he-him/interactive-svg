@@ -1,5 +1,5 @@
-export default function objectContains(container, contained) {
-  for (let key of Object.keys(contained)) {
+module.exports = function objectContains(container, contained) {
+  for (const key of Object.keys(contained)) {
     const item = contained[key];
     if (!container.propertyIsEnumerable(key)) return false;
 

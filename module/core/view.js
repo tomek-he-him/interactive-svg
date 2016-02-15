@@ -1,14 +1,14 @@
-import updateTransformation from './view/updateTransformation';
-import applyTransformations from './view/applyTransformations';
-import vPatchify from '../tools/vPatchify';
-import updateElement from '../tools/updateElement';
+const updateTransformation = require('./view/updateTransformation');
+const applyTransformations = require('./view/applyTransformations');
+const vPatchify = require('../tools/vPatchify');
+const updateElement = require('../tools/updateElement');
 
 const stereo = require('stereo');
 
-export default function view (viewportElement) {
+module.exports = function view (viewportElement) {
 
   // Initialize the channel `initialViewBoxCoords`.
-  let viewBoxCoords = null;
+  const viewBoxCoords = null;
   const initialViewBoxCoords = stereo();
   initialViewBoxCoords.on('update', (coords) => {
     viewBoxCoords = coords;

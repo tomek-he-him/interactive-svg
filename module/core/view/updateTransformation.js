@@ -1,4 +1,4 @@
-export default (transformations) =>
+module.exports = (transformations) =>
   function updateTransformation (transformation) {
     const { priority, transformFunction } = transformation;
     const index = parseInt(priority);

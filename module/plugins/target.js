@@ -1,4 +1,4 @@
-import plugin from '../tools/plugin';
+const plugin = require('../tools/plugin');
 
 const assign = require('object-assign');
 
@@ -7,7 +7,7 @@ const proto = {
   transformFunction: null,
 };
 
-export default plugin(function target({model, view}) {
+module.exports = plugin(function target({model, view}) {
   model.attributeChanges.when('target', (vNode) => {
     const emptyUpdate = Object.create(proto);
     const {emit} = view.viewBoxTransformations;

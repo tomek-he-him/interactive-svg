@@ -1,11 +1,11 @@
-import createModel from './core/model';
-import createView from './core/view';
+const createModel = require('./core/model');
+const createView = require('./core/view');
 
 const assign = require('object-assign');
 const arrayFrom = require('array-from');
 const arrayFind = require('array-find');
 
-export default ({plugins}) => {
+module.exports = ({plugins}) => {
   return document.registerElement('interactive-svg', {
     prototype: assign(
       Object.create(HTMLElement.prototype),

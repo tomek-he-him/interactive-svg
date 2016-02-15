@@ -1,10 +1,10 @@
-import test from 'prova';
-import element from '../test-tools/element';
-import h from 'virtual-dom/h';
-import diff from 'virtual-dom/diff';
-import vNodify from '../../module/tools/vNodify';
+const test = require('prova');
+const element = require('../test-tools/element');
+const h = require('virtual-dom/h');
+const diff = require('virtual-dom/diff');
+const vNodify = require('../../module/tools/vNodify');
 
-import updateElement from '../../module/tools/updateElement';
+const updateElement = require('../../module/tools/updateElement');
 
 function dewhitespace(string) {
   return string.replace(/\s/g, '');
@@ -12,7 +12,7 @@ function dewhitespace(string) {
 
 test('tools/updateElement:  ' +
   'Works.', (is) => {
-    let element1 = element(
+    const element1 = element(
       '<div ' +
         'class="anything" ' +
         'align="left" ' +
@@ -48,7 +48,7 @@ test('tools/updateElement:  ' +
       'with a lightweight duck-typed diff'
     );
 
-    let element2 = element(
+    const element2 = element(
       '<div ' +
         'class="anything" ' +
         'align="left" ' +
@@ -88,7 +88,7 @@ test('tools/updateElement:  ' +
       'with a real VirtualNode'
     );
 
-    let element3 = element(
+    const element3 = element(
       '<div ' +
         'class="anything" ' +
         'align="left" ' +

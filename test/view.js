@@ -1,1 +1,1 @@
-import './view/applyTransformations';
+require('./view/applyTransformations');

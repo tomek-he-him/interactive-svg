@@ -1,7 +1,7 @@
-import test from 'prova';
-import element from '../test-tools/element';
+const test = require('prova');
+const element = require('../test-tools/element');
 
-import hashifyAttributes from '../../module/tools/hashifyAttributes';
+const hashifyAttributes = require('../../module/tools/hashifyAttributes');
 
 test('tools/hashifyAttributes:  ' +
   'Converts an element to a list of attributes.', (is) => {

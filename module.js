@@ -1,1 +1,1 @@
-export * from './module/index';
+module.exports = require('./module/index');

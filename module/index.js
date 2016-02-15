@@ -1,4 +1,4 @@
-import core from './core';
-import * as plugins from './plugins';
+const core = require('./core');
+const plugins = require('./plugins');
 
-export {core, plugins};
+module.exports = {core, plugins};

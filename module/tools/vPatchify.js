@@ -1,6 +1,6 @@
 const assign = require('object-assign');
 
-export default (properties) => ({
+module.exports = (properties) => ({
   '0': {
     patch: assign({}, properties),
   },
