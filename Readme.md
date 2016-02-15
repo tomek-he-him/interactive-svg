@@ -85,6 +85,21 @@ The `viewBox`, `width`, `height` and `style` of the `<svg>` will be updated auto
 Every feature is available as a separate plugin. All of them are currently in development – ideas and criticism are very welcome.
 
 
+### `viewport`
+
+```html
+<interactive-svg
+  viewport="400 × 200"
+  >
+  <!-- ... -->
+</interactive-svg>
+```
+
+- The above tells the `<interactive-svg>` “your DOM element is 400 CSS pixels wide”
+
+- I’m thinking of an opt-out, implicit `viewport="auto"` which would poll and update the element’s dimensions. Please let me know what you think in an issue.
+
+
 ### `scale`
 
 ```html
@@ -106,33 +121,13 @@ Every feature is available as a separate plugin. All of them are currently in de
 
 ```html
 <interactive-svg
-  target.x="100"
-  target.y="-50"
+  target="100, -50"
   >
   <!-- ... -->
 </interactive-svg>
 ```
 
 - The above says “the point at *(100, -50) SVG pixels* is at the center of the `<interactive-svg>`”
-
-- Supports all SVG units. Unitless means pixels, just like in SVG.
-
-
-### `viewport`
-
-```html
-<interactive-svg
-  viewport="400 × 200"
-  >
-  <!-- ... -->
-</interactive-svg>
-```
-
-- The above tells the `<interactive-svg>` “your DOM element is 400 pixels wide”
-
-- Supports all CSS units.
-
-- I’m thinking of an opt-out, implicit `viewport="auto"` which would poll and update the element’s dimensions. Please let me know what you think in an issue.
 
 
 
