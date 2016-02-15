@@ -1,32 +1,19 @@
-[![Travis – build status
-](https://img.shields.io/travis/tomekwi/interactive-svg/master.svg?style=flat-square)
-](https://travis-ci.org/tomekwi/interactive-svg)
- [![David – status of dependencies
-](https://img.shields.io/david/tomekwi/interactive-svg.svg?style=flat-square)
-](https://david-dm.org/tomekwi/interactive-svg)
- [![Code style: airbnb
-](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)
-](https://github.com/airbnb/javascript)
- [![Stability: experimental
-](https://img.shields.io/badge/stability-experimental-yellow.svg?style=flat-square)
-](https://nodejs.org/api/documentation.html#documentation_stability_index)
+[![Travis – build status](https://img.shields.io/travis/tomekwi/interactive-svg/master.svg?style=flat-square)](https://travis-ci.org/tomekwi/interactive-svg) [![David – status of dependencies](https://img.shields.io/david/tomekwi/interactive-svg.svg?style=flat-square)](https://david-dm.org/tomekwi/interactive-svg) [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript) [![Stability: experimental](https://img.shields.io/badge/stability-experimental-yellow.svg?style=flat-square)](https://nodejs.org/api/documentation.html#documentation_stability_index)
 
 
 
 
-&lt;interactive-svg&gt;
-=====================
+# &lt;interactive-svg&gt;
 
-**A navigatable SVG canvas.**  
-**Perfect for design apps and maps.**
+**A navigatable SVG canvas  
+Perfect for design apps and maps.**
 
 *Heads up! This is totally a work in progress. Ideas are very welcome :)*
 
 
 
 
-Installation
-------------
+## Installation
 
 *interactive-svg* is available through NPM:
 
@@ -34,30 +21,25 @@ Installation
 $ npm install interactive-svg
 ```
 
-– and through bower:
-
-```sh
-$ bower install interactive-svg
-```
 
 
 
-
-Usage
------
+## Usage
 
 **1**
 
 **If you’re fine using `<script>` tags,** import the desired plugins and register the element. All plugins loaded before `interactive-svg.register.js` will be registered by default on every `<interactive-svg>` element.
 
 ```html
-<script src="/path/to/interactive-svg.viewport.js"></script>
-<script src="/path/to/interactive-svg.scale.js"></script>
-<script src="/path/to/interactive-svg.register.js"></script>
+<script src="PATH/TO/interactive-svg.viewport.js"></script>
+<script src="PATH/TO/interactive-svg.scale.js"></script>
+<script src="PATH/TO/interactive-svg.register.js"></script>
 ```
 
+By default, `PATH/TO` is something like `node_modules/parametric-svg/dist`.
 
-**If you’re building your app with a bundler** like [*webpack*][], you can also `require` the parts:
+
+**If you’re building your app with a bundler** like *webpack* or *browserify*, you can also `require` the parts:
 
 ```js
 var interactiveSvg = require('interactive-svg/core');
@@ -69,12 +51,10 @@ interactiveSvg({
 });
 ```
 
-[*webpack*]:  https://webpack.github.io
-
 
 **2**
 
-Add an `<interactive-svg>` to your document. Pack an `<svg>` element inside. 
+Add an `<interactive-svg>` to your document. Pack an `<svg>` element inside.
 
 ```html
 <interactive-svg>
@@ -100,8 +80,7 @@ The `viewBox`, `width`, `height` and `style` of the `<svg>` will be updated auto
 
 
 
-Features
---------
+## Features
 
 Every feature is available as a separate plugin. All of them are currently in development – ideas and criticism are very welcome.
 
@@ -198,8 +177,7 @@ Every feature is available as a separate plugin. All of them are currently in de
 
 
 
-License
--------
+## License
 
 [MIT][] © [Tomek Wiszniewski][]
 
