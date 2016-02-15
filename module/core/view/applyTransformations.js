@@ -16,10 +16,10 @@ module.exports = function applyTransformations(transformations, initialValue) {
     error: new TypeError(
       '<drawing-board> view: Every transformation function should return a ' +
       '`{Number[4]} viewBoxCoordinates`.'
-    )
+    ),
   };
 
   return {
-    viewBoxUpdate: viewBoxCoordinates.map(Number).join(' ')
+    viewBoxUpdate: viewBoxCoordinates.map(Number).join(' '),
   };
-}
+};

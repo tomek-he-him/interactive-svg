@@ -5,13 +5,14 @@ const assign = require('object-assign');
 const arrayFrom = require('array-from');
 const arrayFind = require('array-find');
 
-module.exports = ({plugins}) => {
+module.exports = (options) => {
+  const plugins = options.plugins;
+
   return document.registerElement('interactive-svg', {
     prototype: assign(
       Object.create(HTMLElement.prototype),
       {
         createdCallback() {
-
           const root = this;
           const viewport = arrayFind(
             arrayFrom(root.children),
@@ -23,21 +24,21 @@ module.exports = ({plugins}) => {
           );
 
           // Save references to the DOM.
-          const elements = {root, viewport};
+          const elements = { root, viewport };
 
           // Initialize the model and view.
           const model = createModel(root);
           const view = createView(viewport);
 
           // Initialize default plugins.
-          plugins.forEach((plugin) => plugin({model, view, elements}));
+          plugins.forEach((plugin) => plugin({ model, view, elements }));
 
           // Export data.
-          assign(this, {model, view, elements});
+          assign(this, { model, view, elements });
         },
 
-        attributeChangedCallback: createModel.attributeChangedCallback
+        attributeChangedCallback: createModel.attributeChangedCallback,
       }
-    )
+    ),
   });
 };

@@ -1,6 +1,6 @@
-module.exports = (initialize) => {
-  initialize.type = 'plugin';
-  initialize.version = '1';
-
-  return initialize;
-};
+module.exports = (initialize) => (
+  Object.assign({}, initialize, {
+    type: 'plugin',
+    version: '1',
+  })
+);

@@ -1,5 +1,5 @@
-var asObject = require('as/object');
-var assign = require('101/assign');
+const asObject = require('as/object');
+const assign = require('101/assign');
 
 module.exports = {
 
@@ -11,10 +11,10 @@ module.exports = {
       'scale',
       'target',
       'viewport',
-    ].map(function(name) {return {
+    ].map((name) => ({
       key: name,
-      value: './module/plugins/' + name + '.js',
-    };}))
+      value: `./module/plugins/${ name }.js`,
+    })))
   ),
 
   output: {
@@ -32,6 +32,6 @@ module.exports = {
       test: /\.js$/,
       include: /\/module(\/|\.js$)/,
       query: { presets: ['es2015'] },
-    }
-  ] }
+    },
+  ] },
 };

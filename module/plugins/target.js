@@ -7,14 +7,17 @@ const proto = {
   transformFunction: null,
 };
 
-module.exports = plugin(function target({model, view}) {
+module.exports = plugin((params) => {
+  const model = params.model;
+  const view = params.view;
+
   model.attributeChanges.when('target', (vNode) => {
     const emptyUpdate = Object.create(proto);
-    const {emit} = view.viewBoxTransformations;
-    const {target} = vNode.properties;
+    const emit = view.viewBoxTransformations.emit;
+    const target = vNode.properties.target;
 
     // Clean up if the attribute has been removed.
-    if (target == null) {
+    if (target === null || target === undefined) {
       emit('add', emptyUpdate);
       return;
     }
@@ -36,7 +39,7 @@ module.exports = plugin(function target({model, view}) {
         coords[1] + y,
         coords[2],
         coords[3],
-      ]
+      ],
     }));
   });
 });

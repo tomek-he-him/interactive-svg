@@ -9,9 +9,8 @@ module.exports = function objectContains(container, contained) {
         return false;
       }
       if (!objectContains(containerItem, item)) return false;
-
     } else if (containerItem !== item) return false;
   }
 
   return true;
-}
+};

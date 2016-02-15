@@ -1,24 +1,25 @@
 module.exports = (transformations) =>
-  function updateTransformation (transformation) {
+  function updateTransformation(transformation) {
     const { priority, transformFunction } = transformation;
-    const index = parseInt(priority);
+    const index = parseInt(priority, 10);
 
-    // Delete the transformation if the `transformFunction` is null.
     if (transformFunction === null) {
-      delete transformations[index];
-    }
+      // Delete the transformation if the `transformFunction` is null.
 
-    // Validate the transformFunction.
-    else if (typeof transformFunction !== 'function') {
+      delete transformations[index];  // eslint-disable-line no-param-reassign
+      // TODO: Get rid of the need for mutating things!
+    } else if (typeof transformFunction !== 'function') {
+      // Validate the transformFunction.
+
       throw new TypeError(
         '<drawing-board> view: Expected a `{Function|Null} ' +
         'transformation.transformFunction`.'
       );
-    }
+    } else {
+      // Save the transformation.
 
-    // Save the transformation.
-    else {
-      transformations[index] = transformFunction;
+      transformations[index] = transformFunction;  // eslint-disable-line no-param-reassign
+        // TODO: Get rid of the need for mutating things!
     }
   }
 ;

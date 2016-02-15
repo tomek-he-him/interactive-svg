@@ -42,9 +42,9 @@ By default, `PATH/TO` is something like `node_modules/parametric-svg/dist`.
 **If you’re building your app with a bundler** like *webpack* or *browserify*, you can also `require` the parts:
 
 ```js
-var interactiveSvg = require('interactive-svg/core');
-var viewport = require('interactive-svg/plugins/viewport');
-var scale = require('interactive-svg/plugins/scale');
+const interactiveSvg = require('interactive-svg/core');
+const viewport = require('interactive-svg/plugins/viewport');
+const scale = require('interactive-svg/plugins/scale');
 
 interactiveSvg({
   plugins: [viewport, scale]

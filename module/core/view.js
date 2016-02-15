@@ -1,3 +1,5 @@
+'use strict';
+
 const updateTransformation = require('./view/updateTransformation');
 const applyTransformations = require('./view/applyTransformations');
 const vPatchify = require('../tools/vPatchify');
@@ -5,36 +7,36 @@ const updateElement = require('../tools/updateElement');
 
 const stereo = require('stereo');
 
-module.exports = function view (viewportElement) {
+module.exports = function view(viewportElement) {
+  // Initialize the channel `viewBoxTransformations`.
+  const viewBoxTransformations = stereo();
 
   // Initialize the channel `initialViewBoxCoords`.
-  const viewBoxCoords = null;
+  let viewBoxCoords = null;
   const initialViewBoxCoords = stereo();
   initialViewBoxCoords.on('update', (coords) => {
     viewBoxCoords = coords;
     viewBoxTransformations.emit('touch');
   });
 
-  // Initialize the channel `viewBoxTransformations`.
-  const viewBoxTransformations = stereo();
   const transformations = [];
   viewBoxTransformations.on('add',
     updateTransformation(transformations)
   );
   viewBoxTransformations.on(['add', 'touch'], () => {
     if (!viewBoxCoords) {
-      updateElement(viewportElement, vPatchify({viewBox: null}));
+      updateElement(viewportElement, vPatchify({ viewBox: null }));
       return;
     }
 
-    const { error, viewBoxUpdate } = applyTransformations(
+    const newBox = applyTransformations(
       transformations,
       viewBoxCoords
     );
-    if (error) console.error(error);
-    if (viewBoxUpdate) updateElement(
+    if (newBox.error) console.error(newBox.error);
+    if (newBox.viewBoxUpdate) updateElement(
       viewportElement,
-      vPatchify({ viewBox: viewBoxUpdate })
+      vPatchify({ viewBox: newBox.viewBoxUpdate })
     );
   });
 
@@ -46,9 +48,9 @@ module.exports = function view (viewportElement) {
 
   // Catch and display errors.
   [
-    initialViewBoxCoords, viewBoxTransformations, attributeUpdates
+    initialViewBoxCoords, viewBoxTransformations, attributeUpdates,
   ].forEach((channel) => channel.catch(console.error.bind(console)));
 
   // Export data.
   return { viewBoxTransformations, attributeUpdates, initialViewBoxCoords };
-}
+};

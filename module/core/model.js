@@ -3,7 +3,7 @@ const vNodify = require('../tools/vNodify');
 const stereo = require('stereo');
 const arrayFrom = require('array-from');
 
-function model (root) {
+function model(root) {
   const attributeChanges = stereo();
 
   const vNode = vNodify(root);

@@ -12,4 +12,4 @@ module.exports = function vNodify(element) {
   vNode.properties = hashifyAttributes(element.attributes);
   if (element.tagName) vNode.tagName = element.tagName;
   return vNode;
-}
+};

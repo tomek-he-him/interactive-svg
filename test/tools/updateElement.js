@@ -12,108 +12,95 @@ function dewhitespace(string) {
 
 test('tools/updateElement:  ' +
   'Works.', (is) => {
-    const element1 = element(
-      '<div ' +
-        'class="anything" ' +
-        'align="left" ' +
-        'id="element-id" ' +
-        'data-something="good" ' +
-        '>' +
-      '</div>'
-    );
+  const element1 = element(
+    '<div ' +
+      'class="anything" ' +
+      'align="left" ' +
+      'id="element-id" ' +
+      'data-something="good" ' +
+      '>' +
+    '</div>'
+  );
 
-    updateElement(element1,
-      { '0':
-        { type: 4,
-          patch: {
-            class: 'class one two three',
-            'data-something': 'even better',
-            checked: '',
-            id: undefined
-          }
-        }
-      }
-    );
-
-    is.equal(dewhitespace(element1.outerHTML),
-      dewhitespace(
-        '<div ' +
-          'class="class one two three" ' +
-          'align="left" ' +
-          'data-something="even better" ' +
-          'checked="" ' +
-          '>' +
-        '</div>'
-      ),
-      'with a lightweight duck-typed diff'
-    );
-
-    const element2 = element(
-      '<div ' +
-        'class="anything" ' +
-        'align="left" ' +
-        'id="element-id" ' +
-        'data-something="good" ' +
-        '>' +
-      '</div>'
-    );
-
-    updateElement(element2,
-      diff(
-        h('div', {
-          class: 'anything',
-          align: 'left',
-          id: 'element-id',
-          'data-something': 'good',
-        }),
-        h('div', {
+  updateElement(element1,
+    { 0:
+      { type: 4,
+        patch: {
           class: 'class one two three',
-          align: 'left',
           'data-something': 'even better',
-          checked: ''
-        })
-      )
-    );
+          checked: '',
+          id: undefined,
+        },
+      },
+    }
+  );
 
-    is.equal(dewhitespace(element2.outerHTML),
-      dewhitespace(
-        '<div ' +
-          'class="class one two three" ' +
-          'align="left" ' +
-          'data-something="even better" ' +
-          'checked="" ' +
-          '>' +
-        '</div>'
-      ),
-      'with a real VirtualNode'
-    );
-
-    const element3 = element(
+  is.equal(dewhitespace(element1.outerHTML),
+    dewhitespace(
       '<div ' +
-        'class="anything" ' +
+        'class="class one two three" ' +
         'align="left" ' +
-        'id="element-id" ' +
-        'data-something="good" ' +
+        'data-something="even better" ' +
+        'checked="" ' +
         '>' +
       '</div>'
-    );
+    ),
+    'with a lightweight duck-typed diff'
+  );
 
-    updateElement(element3,
-      diff(vNodify(element3),
-        vNodify(element(
-          '<div ' +
-            'class="class one two three" ' +
-            'align="left" ' +
-            'data-something="even better" ' +
-            'checked="" ' +
-            '>' +
-          '</div>'
-        ))
-      )
-    );
+  const element2 = element(
+    '<div ' +
+      'class="anything" ' +
+      'align="left" ' +
+      'id="element-id" ' +
+      'data-something="good" ' +
+      '>' +
+    '</div>'
+  );
 
-    is.equal(dewhitespace(element3.outerHTML),
-      dewhitespace(
+  updateElement(element2,
+    diff(
+      h('div', {
+        class: 'anything',
+        align: 'left',
+        id: 'element-id',
+        'data-something': 'good',
+      }),
+      h('div', {
+        class: 'class one two three',
+        align: 'left',
+        'data-something': 'even better',
+        checked: '',
+      })
+    )
+  );
+
+  is.equal(dewhitespace(element2.outerHTML),
+    dewhitespace(
+      '<div ' +
+        'class="class one two three" ' +
+        'align="left" ' +
+        'data-something="even better" ' +
+        'checked="" ' +
+        '>' +
+      '</div>'
+    ),
+    'with a real VirtualNode'
+  );
+
+  const element3 = element(
+    '<div ' +
+      'class="anything" ' +
+      'align="left" ' +
+      'id="element-id" ' +
+      'data-something="good" ' +
+      '>' +
+    '</div>'
+  );
+
+  updateElement(element3,
+    diff(vNodify(element3),
+      vNodify(element(
         '<div ' +
           'class="class one two three" ' +
           'align="left" ' +
@@ -121,10 +108,22 @@ test('tools/updateElement:  ' +
           'checked="" ' +
           '>' +
         '</div>'
-      ),
-      'with vNodified DOM elements'
-    );
+      ))
+    )
+  );
 
-    is.end();
-  }
-);
+  is.equal(dewhitespace(element3.outerHTML),
+    dewhitespace(
+      '<div ' +
+        'class="class one two three" ' +
+        'align="left" ' +
+        'data-something="even better" ' +
+        'checked="" ' +
+        '>' +
+      '</div>'
+    ),
+    'with vNodified DOM elements'
+  );
+
+  is.end();
+});

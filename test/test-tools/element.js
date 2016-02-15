@@ -12,4 +12,4 @@ module.exports = function element(htmlString) {
 
   // Return the first node.
   return firstNode;
-}
+};

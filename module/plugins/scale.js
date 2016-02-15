@@ -7,14 +7,17 @@ const proto = {
   transformFunction: null,
 };
 
-module.exports = plugin(function scale({model, view}) {
+module.exports = plugin((params) => {
+  const model = params.model;
+  const view = params.view;
+
   model.attributeChanges.when('scale', (vNode) => {
     const emptyUpdate = Object.create(proto);
-    const {emit} = view.viewBoxTransformations;
-    const {scale} = vNode.properties;
+    const emit = view.viewBoxTransformations.emit;
+    const scale = vNode.properties.scale;
 
     // Clean up if the attribute has been removed.
-    if (scale == null) {
+    if (scale === null || scale === undefined) {
       emit('add', emptyUpdate);
       return;
     }
@@ -41,7 +44,7 @@ module.exports = plugin(function scale({model, view}) {
           width / cleanScale,
           height / cleanScale,
         ];
-      }
+      },
     }));
   });
 });
