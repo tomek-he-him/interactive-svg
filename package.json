@@ -12,7 +12,7 @@
   "scripts": {
     "prepublish": "git clean -e node_modules -xdi && webpack",
     "develop": "nodangel  --watch source  --watch test  --exec npm test",
-    "test": "node --harmony_destructuring test.js",
+    "test": "node test.js",
     "start": "echo 'Head over to http://localhost:9637/test/fixtures/basic.html and see miracles.\n' && livereloadx --static --port 9637 --exclude 'source/*' --exclude 'node_modules/*'"
   },
   "devDependencies": {

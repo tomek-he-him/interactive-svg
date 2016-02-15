@@ -1,6 +1,7 @@
 module.exports = (transformations) =>
   function updateTransformation(transformation) {
-    const { priority, transformFunction } = transformation;
+    const priority = transformation.priority;
+    const transformFunction = transformation.transformFunction;
     const index = parseInt(priority, 10);
 
     if (transformFunction === null) {

@@ -11,7 +11,7 @@ module.exports = plugin((params) => {
 
   model.attributeChanges.when('viewport', (vNode) => {
     const currentStyle = elements.viewport.getAttribute('style');
-    const { viewport } = vNode.properties;
+    const viewport = vNode.properties.viewport;
 
     // Clean up if the attribute has been removed.
     if (viewport === null || viewport === undefined) {

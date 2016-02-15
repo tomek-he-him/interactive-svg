@@ -1,4 +1,4 @@
-const { jsdom } = require('jsdom');
+const jsdom = require('jsdom').jsdom;
 
 const div = jsdom().defaultView.document.createElement('div');
 
