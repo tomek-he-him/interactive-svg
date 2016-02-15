@@ -85,32 +85,6 @@ The `viewBox`, `width`, `height` and `style` of the `<svg>` will be updated auto
 Every feature is available as a separate plugin. All of them are currently in development – ideas and criticism are very welcome.
 
 
-### `zoom`
-
-```html
-<interactive-svg
-  zoom.speed="3"
-  >
-  <!-- ... -->
-</interactive-svg>
-```
-
-- Enables zooming content in the viewport with the mouse wheel and the pinch-zoom event.
-
-
-### `pan`
-
-```html
-<interactive-svg
-  pan.mouse-button="right"
-  >
-  <!-- ... -->
-</interactive-svg>
-```
-
-- Enables panning content in the viewport with the mouse and the touch-drag event.
-
-
 ### `scale`
 
 ```html
@@ -159,20 +133,6 @@ Every feature is available as a separate plugin. All of them are currently in de
 - Supports all CSS units.
 
 - I’m thinking of an opt-out, implicit `viewport="auto"` which would poll and update the element’s dimensions. Please let me know what you think in an issue.
-
-
-### `canvas`
-
-```html
-<interactive-svg
-  canvas.width="10000"
-  canvas.height="6000"
-  >
-  <!-- ... -->
-</interactive-svg>
-```
-
-- The above will limit panning and zooming to an area of *10000 × 6000 SVG pixels*
 
 
 
