@@ -1,4 +1,4 @@
-import test from 'tape-catch';
+import test from 'prova';
 import element from '../test-tools/element';
 
 import hashifyAttributes from '../../module/tools/hashifyAttributes';

@@ -1,4 +1,4 @@
-import test from 'tape-catch';
+import test from 'prova';
 import isVNode from 'virtual-dom/vnode/is-vnode';
 import element from '../test-tools/element';
 

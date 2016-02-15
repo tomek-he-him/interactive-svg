@@ -1,5 +1,5 @@
 /* jshint elision: true */
-import test from 'tape-catch';
+import test from 'prova';
 
 import applyTransformations from
   '../../module/core/view/applyTransformations'

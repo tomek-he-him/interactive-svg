@@ -3,34 +3,31 @@
   "version": "0.0.4-experimental",
   "description": "A navigatable SVG canvas. Made for web-based CAD apps.",
   "dependencies": {
-    "array-find": "stefanduberg/array-find#88d83a9",
-    "array-from": "1.0.0",
-    "as": "0.4.1",
-    "object-assign": "2.0.0",
-    "stereo": "0.4.0"
+    "array-find": "^1.0.0",
+    "array-from": "^1.0.0",
+    "as": "^0.4.1",
+    "object-assign": "^2.0.0",
+    "stereo": "^0.4.0"
   },
   "scripts": {
+    "prepublish": "git clean -e node_modules -xdi && webpack",
     "develop": "nodangel  --watch source  --watch test  --exec npm test",
-    "prepublish": "gulp build",
-    "test": "babel-node test.js | tap-spec",
+    "test": "babel-node --presets es2015 test.js",
     "start": "echo 'Head over to http://localhost:9637/test/fixtures/basic.html and see miracles.\n' && livereloadx --static --port 9637 --exclude 'source/*' --exclude 'node_modules/*'"
   },
   "devDependencies": {
-    "101": "0.14.1",
-    "tap-spec": "2.2.2",
-    "nodangel": "1.3.8",
-    "livereloadx": "0.3.7",
-    "babel": "5.0.12",
-    "tape-catch": "1.0.4",
-    "babel-loader": "5.0.0",
-    "del": "1.1.1",
-    "gulp": "3.8.11",
-    "gulp-help": "1.3.4",
-    "gulp-rename": "1.2.2",
-    "gulp-uglify": "1.2.0",
-    "webpack": "1.8.2",
-    "jsdom": "3.1.2",
-    "virtual-dom": "2.0.1"
+    "101": "^1.3.1",
+    "babel": "^6.5.2",
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.5.0",
+    "jsdom": "^8.0.2",
+    "livereloadx": "^0.3.9",
+    "node-dev": "github:tomekwi/node-dev#39f8c44",
+    "prova": "^2.1.2",
+    "virtual-dom": "^2.1.1",
+    "webpack": "^1.12.13"
   },
   "files": [
     "/dist/",
@@ -55,5 +52,8 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:tomekwi/interactive-svg.git"
+  },
+  "engines": {
+    "node": "<=4.0.0"
   }
 }

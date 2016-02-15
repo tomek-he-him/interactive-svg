@@ -1,4 +1,4 @@
-import test from 'tape-catch';
+import test from 'prova';
 import element from '../test-tools/element';
 import h from 'virtual-dom/h';
 import diff from 'virtual-dom/diff';
