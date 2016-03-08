@@ -16,7 +16,7 @@
     "start": "echo 'Head over to http://localhost:9637/test/fixtures/basic.html and see miracles.\n' && livereloadx --static --port 9637 --exclude 'source/*' --exclude 'node_modules/*'"
   },
   "devDependencies": {
-    "101": "^1.3.1",
+    "101": "^1.5.0",
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.2",
     "babel-preset-es2015": "^6.5.0",
