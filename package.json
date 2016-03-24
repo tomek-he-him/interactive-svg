@@ -21,7 +21,7 @@
     "babel-loader": "^6.2.2",
     "babel-preset-es2015": "^6.5.0",
     "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^5.0.1",
+    "eslint-config-airbnb": "^6.1.0",
     "jsdom": "^8.0.2",
     "livereloadx": "^0.3.9",
     "node-dev": "github:tomekwi/node-dev#39f8c44",
